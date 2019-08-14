@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Storidge/cio-faq/issues"
   },
-  "homepage": "https://github.com/Storidge/cio-faq#readme"
+  "homepage": "https://github.com/Storidge/cio-faq#readme",
+  "dependencies": {
+    "vuepress": "^1.0.3"
+  }
 }
