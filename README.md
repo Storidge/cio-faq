@@ -17,4 +17,4 @@ This FAQ is a work in progress designed to answer the questions our users most f
 
 [Integrations](/integrations.md)
 
-
+If you have questions not in the FAQ, post them in our cio-user Slack channel. [Join us here!](http://storidge.com/join-cio-slack/)
