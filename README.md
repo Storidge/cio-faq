@@ -1,3 +1,5 @@
+![Logo](https://i.imgur.com/FfIj2NA.png)
+
 # Frequently Asked Questions
 
 Get answers quickly by entering keywords in the search bar above.  
