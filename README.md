@@ -1,7 +1,6 @@
 # FAQ
----
 
-This FAQ is a work in progress designed to answer the questions our users most frequently ask. 
+This FAQ is a work in progress designed to answer the questions our users most frequently ask.
 
 [General](/general.md)
 
