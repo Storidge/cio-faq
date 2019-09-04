@@ -1,6 +1,6 @@
 # FAQ
 
-This FAQ is a work in progress designed to answer the questions our users most frequently ask.
+Find answers and general information quickly about getting started with Storidge CIO. This FAQ is a work in progress designed to answer questions our users most frequently ask.
 
 [General](/general.md)
 
