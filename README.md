@@ -1,6 +1,6 @@
-# FAQ
+# Frequently Asked Questions
 
-Find answers and general information quickly about getting started with Storidge CIO. This FAQ is a work in progress designed to answer questions our users most frequently ask.
+Find information and get started with Storidge CIO. Get answers quickly by entering keywords in the search bar above.  
 
 [General](/general.md)
 
@@ -16,4 +16,4 @@ Find answers and general information quickly about getting started with Storidge
 
 [Integrations](/integrations.md)
 
-If you have questions not in the FAQ, post them in our cio-user Slack channel. [Join us here!](http://storidge.com/join-cio-slack/)
+This FAQ is a work in progress. If you have questions not in this FAQ, please join our [cio-user Slack channel](http://storidge.com/join-cio-slack/) to post your questions.
