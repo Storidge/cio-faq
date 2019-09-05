@@ -32,6 +32,62 @@ Yes, you can get an overview of the key capabilities and benefits of the CIO sof
 
 Next our [Getting Started guide](https://guide.storidge.com/getting_started/install.html) has exercises that step through software installation, creation of a cluster, and highlights commonly used commands and important use cases. Step through these exercise at your own pace and share them with your team.
 
+### I would like to dig deeper into Storidge CIO capabilities? What resources do you have available?
+
+Here is a [list of resources](https://github.com/Storidge/resources) to get started. We will be continuing to update the list with more integrations, tools and information so please check back.
+
+### What is a “noisy neighbor” issue?
+
+A noisy neighbor issue is a term used in the storage industry for a situation that happens when the same resource (file system or storage system) is being used for multiple services or workloads. These 'neighbors' are sharing the same resource. Just as having loud neighbors prevents you from hearing your own television, having a neighbor in your file system who takes up more bandwidth or performance than you do prevents you from running your own processes at optimal capacity.
+
+### How is block storage better for noisy neighbor issues?
+
+Solving noisy neighbor issues requires performance isolation to limit impact and to enable active quality of service (QoS) management. Block storage can be architected for low latency to enable performance management per application. Non-shared volumes with QoS is the best way to isolate noisy neighbors and deliver guaranteed service level agreement (SLA) for applications.
+
+### Why do you use block storage instead of file system?
+
+File systems are a shared medium. While file systems can aggregate the performance of multiple drives and multiple nodes, the overhead and added latencies makes it difficult to optimize the storage stack, and deliver performance management for individual applications.
+
+This is why Storidge starts with a block storage foundation for low latency, and then layer in the desired file system for each application on demand.
+
+### Why use containers when VMs provide better isolation and security?
+
+It is not an either or choice. For some applications, containers can be deployed inside of VMs for improved security. For single tenant, single application environments containers provides tremendous savings from server consolation by avoiding overhead of running in VMs.
+
+The value of containers is in enabling a new way of building applications based on “micro-services.” Many new applications that might have been deployed directly in VMs can now be deployed in containers. This will have profound effects on programming, systems management and the operational model. Ultimately containers will erode virtualization positions even in environments where it is not completely eliminated.
+
+### Why is consistent hashing not the future for primary storage?
+
+When consistent hashing is applied to storage, the computed hash determines the location of data within a cluster (i.e. it locks the data to one location and to one drive type). The location of the data is only re-computed when the size of the cluster changes (e.g. when additional capacity or nodes is added). While this works well for object storage, it creates limitations for applications where high performance and manageability is valued:   
+
+-	With data location fixed by a hash, data locality is not possible (i.e. cannot place data on node where the application is running). This can be mitigated with additional cost through a local cache, however caching does not work for some use cases. Consistent hashing results in greater network bandwidth consumed even for read operations. This issue is exacerbated for large file transfers where data is stripped across multiple nodes (e.g. media files or video streaming).
+
+-	In addition to consuming network bandwidth that could have been otherwise used for write operations, crossing the network also adds variable latency. As latencies increase, delivering quality of service (QoS) guarantees to applications becomes very difficult or impossible. This is why no software defined storage implementation provide minimum IOPS guarantees.
+
+-	With data locked to one drive type, automatic tiering of data based on frequency of access is not possible. Instead a decision to select the correct storage type must be made prior to deployment. Changing the storage type to optimize performance or cost requires planned data migration and administrative overhead.
+
+### Why is automatic data locality better than consistent hashing?
+
+Storidge’s automatic data locality feature means most application I/Os are serviced on the local node. Unlike consistent hashing which introduces variable network latency, data locality ensures consistent performance for applications when a container is rescheduled to a different node. It also makes more efficient use of available network bandwidth and delivers greater data throughput.
+
+Automatic data locality eliminates the need to set node constraints to force data locality. It also saves the need to install and maintain APIs for coordinating workload placement with a scheduler. Instead the scheduler can freely place workloads based on available resources, and data is automatically moved to the application.
+
+### Why present volumes as “local storage” on a node? Are you swapping one kind of latency for another?
+
+Storidge presents storage as a local block device. This approach greatly reduces latency, similar to how NVMe flash devices deliver much higher performance than SSDs by eliminating the overhead of SCSI protocols.
+
+Storidge supports shared storage by enabling any volume to be shared through protocols such NFS, SMB, S3, etc. These network interfaces are presented as a stateless service. This approach means that the latency and compute costs of network storage is only incurred by a minority of applications. The majority of containerized applications benefit from having high performance, direct access to storage.
+
+### Why is Storidge more scalable?
+
+Scalability is inversely related to complexity, latency and degree of sharing. For example, storage area networks are hard to scale because of widely disparate components (servers, network, storage systems). High latencies greatly reduce the rate of atomic operations which are necessary for maintaining data consistency. Sharing requires synchronization methods, which in turn creates bottlenecks (e.g. metadata of file systems).
+
+Storidge is built around the concept of small building blocks that are interchangeable horizontally across nodes, and vertically across tiers of storage. This is much simpler than trying to manage non-homogeneous storage boxes with different performance and capabilities.
+
+Storidge is architected to minimize latency in the storage stack. Methods include a block based foundation, in kernel modules, and presenting storage as a local device to eliminate latency and the compute costs of network storage protocols.
+
+The metadata in a Storidge cluster is truly distributed. Unlike file systems with centralized metadata and ultimately limited scalability, each node in a Storidge cluster manages the metadata of the virtual disks for which it has ownership. Since metadata is in the data path, this eliminates the latency of referencing a “master controller”.
+
 ### The docs.storidge.com and guide.storidge.com domains are unavailable for me
 
 Check your DNS settings and company VPN.
