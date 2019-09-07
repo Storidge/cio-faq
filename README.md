@@ -10,6 +10,8 @@ Find information and get started with Storidge CIO. Get answers quickly by enter
 
 [Docker Swarm](/docker-swarm.md)
 
+[Docker Volumes](/docker-volumes.md)
+
 [Drives](/drives.md)
 
 [Hardware](/hardware.md)

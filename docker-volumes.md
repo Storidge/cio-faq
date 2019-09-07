@@ -42,7 +42,7 @@ volumes:
     driver: cio
 ```
 
-To create a volume using a [profile]((https://guide.storidge.com/getting_started/why_profiles.html), use driver options to pass the profile name, e.g. profile MYSQL below:   
+To create a volume using a [profile](https://guide.storidge.com/getting_started/why_profiles.html), use driver options to pass the profile name, e.g. profile MYSQL below:   
 
 ```
 volumes:
