@@ -92,6 +92,6 @@ The metadata in a Storidge cluster is truly distributed. Unlike file systems wit
 
 Check your DNS settings and company VPN.
 
-Since the documentation are Vuepress based with github repos, they can also be made accessible locally. See the repo for [user guide](https://github.com/Storidge/cio-userguide and [docs](https://github.com/Storidge/cio-userdocs).
+Since the documentation are Vuepress based with github repos, they can also be made accessible locally. See the repo for [user guide](https://github.com/Storidge/cio-userguide) and [docs](https://github.com/Storidge/cio-userdocs).
 
 You can git clone the projects, run `vuepress build` in a Vuepress environment, and view the documentation locally.
