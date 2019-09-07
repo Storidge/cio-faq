@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-Find information and get started with Storidge CIO. Get answers quickly by entering keywords in the search bar above.  
+Get answers quickly by entering keywords in the search bar above.  
 
 [General](/general.md)
 
