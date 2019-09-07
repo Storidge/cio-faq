@@ -25,6 +25,7 @@ module.exports = {
               '/cluster.md',
               '/data-services.md',
               '/docker-swarm.md',
+              '/docker-volumes.md',
               '/drives.md',
               '/hardware.md',
               '/integrations.md'
