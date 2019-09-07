@@ -21,3 +21,26 @@ The network interface will depend on your application performance requirements, 
 A 1GbE support max 125MB/s. After deducting for encoding and overhead, you can assume a sustained throughput of  60MB/s on the conservative side. 10GbE will be about 10x the throughput so if you need more performance, then 10GbE can be considered.
 
 The Storidge CIO software has a data locality feature. So unlike most software defined storage, the network bandwidth is efficiently used since most of the read I/Os are local to the node, i.e. the network bandwidth is used mostly for write I/Os. You can factor this into your decision for network requirements.
+
+### Why are dual network interfaces recommended in hardware requirements, e.g. dual 1GbE or dual 10GbE?
+
+While Storidge CIO will operate off one network interface, dual interfaces provides greater network bandwidth and isolation. It allows one interface to be dedicated to internode storage traffic (backend), and the second interface assigned for front end applications.
+
+### Does Storidge CIO work on 100GbE interfaces?
+
+Yes, Storidge CIO has been tested with 100GbE interfaces on bare metal servers.
+
+### If I have multiple network interfaces, how do I specify which interface Storidge uses?
+
+When you run `cioctl create` to start a cluster, it detects the network interfaces, lists them, and will suggest the first IP address. Example:
+
+```
+root@cio1:~# cioctl create
+There are multiple IP addresses on this system (138.68.50.155 on eth0, 10.46.0.5 on eth0, 10.138.148.183 on eth1).
+Re-run the create command by specifying the IP address with the --ip flag, e.g.:
+    cioctl create --ip 138.68.50.155
+```
+
+In this example, Storidge lists three IP address and suggests the first one (138.68.50.155). However you may want to use something else. Replace the suggested IP address using the `--ip` flag.
+
+For example, to specify network interface eth1 on subnet 10.138.148.0, run `cioctl create --ip 10.138.148.183` to start the cluster.
