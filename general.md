@@ -58,7 +58,7 @@ The value of containers is in enabling a new way of building applications based 
 
 ### Why is consistent hashing not the future for primary storage?
 
-When consistent hashing is applied to storage, the computed hash determines the location of data within a cluster (i.e. it locks the data to one location and to one drive type). The location of the data is only re-computed when the size of the cluster changes (e.g. when additional capacity or nodes is added). While this works well for object storage, it creates limitations for applications where high performance and manageability is valued:   
+When [consistent hashing](https://www.acodersjourney.com/system-design-interview-consistent-hashing/) is applied to storage, the computed hash determines the location of data within a cluster (i.e. it locks the data to one location and to one drive type). The location of the data is only re-computed when the size of the cluster changes (e.g. when additional capacity or nodes is added). While this works well for object storage, it creates limitations for applications where high performance and manageability is valued:   
 
 -	With data location fixed by a hash, data locality is not possible (i.e. cannot place data on node where the application is running). This can be mitigated with additional cost through a local cache, however caching does not work for some use cases. Consistent hashing results in greater network bandwidth consumed even for read operations. This issue is exacerbated for large file transfers where data is stripped across multiple nodes (e.g. media files or video streaming).
 
@@ -68,7 +68,7 @@ When consistent hashing is applied to storage, the computed hash determines the 
 
 ### Why is automatic data locality better than consistent hashing?
 
-Storidge’s automatic data locality feature means most application I/Os are serviced on the local node. Unlike consistent hashing which introduces variable network latency, data locality ensures consistent performance for applications when a container is rescheduled to a different node. It also makes more efficient use of available network bandwidth and delivers greater data throughput.
+Storidge’s automatic data locality feature means most application I/Os are serviced on the local node. Unlike [consistent hashing](https://www.acodersjourney.com/system-design-interview-consistent-hashing/) which introduces variable network latency, data locality ensures consistent performance for applications when a container is rescheduled to a different node. It also makes more efficient use of available network bandwidth and delivers greater data throughput.
 
 Automatic data locality eliminates the need to set node constraints to force data locality. It also saves the need to install and maintain APIs for coordinating workload placement with a scheduler. Instead the scheduler can freely place workloads based on available resources, and data is automatically moved to the application.
 
@@ -87,6 +87,28 @@ Storidge is built around the concept of small building blocks that are interchan
 Storidge is architected to minimize latency in the storage stack. Methods include a block based foundation, in kernel modules, and presenting storage as a local device to eliminate latency and the compute costs of network storage protocols.
 
 The metadata in a Storidge cluster is truly distributed. Unlike file systems with centralized metadata and ultimately limited scalability, each node in a Storidge cluster manages the metadata of the virtual disks for which it has ownership. Since metadata is in the data path, this eliminates the latency of referencing a “master controller”.
+
+### What is persistent storage? I thought all storage persists data
+
+Persistent storage is any storage device or system that retains data after power is turned off. Persistent storage can be in the form of file, block or object storage. Because data persistence is assumed, this property is rarely mentioned in specifications for storage devices and systems.
+
+Storage persistence was recently raised as an issue because of the rapid adoption of Docker containers for developing, packaging and deploying applications. Containers were initially stateless and did not support data persistence. Any data created by a containerized app would disappear when the application stopped running and the container was deleted.
+
+Later it became obvious there are use cases where data need to persist beyond the lifecycle of a container. This gave rise to concepts of [bind mounts](https://docs.docker.com/storage/bind-mounts/), [data containers](https://hackernoon.com/docker-data-containers-cb250048d162), and [docker volumes](https://docs.docker.com/v17.09/engine/admin/volumes/volumes/) with varying degrees of persistence.
+
+Today persistent storage options for containers has expanded greatly through [volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) which enable many forms of storage, including traditional and external network storage, to provide data persistence for containerized apps. In particular, the industry has coalesced around the [Container Storage Interface](https://github.com/container-storage-interface/spec) specifications to unify the storage interface for container orchestration systems like Docker Swarm and Kubernetes.
+
+Storidge CIO provides persistent storage for containerized applications.
+
+### What is cloud native storage?
+
+Cloud native storage is a term used to describe storage for cloud native applications.
+
+The Cloud Native Computing Foundation defines [cloud native](https://github.com/cncf/toc/blob/master/DEFINITION.md) as an approach to building and running scalable apps in dynamic, automated environments. Containers, microservices, and immutable infrastructure managed through declarative APIs on an orchestration system exemplifies this approach.
+
+Cloud-native applications are containerized apps designed to run on cloud infrastructure, hence the term ‘native’. The storage consumed by such apps could be ephemeral. However storage for stateful apps are always persistent.
+
+The challenge for cloud native storage is how to efficiently address the storage requirements of very scalable apps in a dynamic environment, managed by highly automated systems such as Docker Swarm and Kubernetes. Refer to [Cloud Native Storage](https://guide.storidge.com/cio_vs_others/cloud_native_storage.html) for more details on different factors to consider.
 
 ### The docs.storidge.com and guide.storidge.com domains are unavailable for me
 

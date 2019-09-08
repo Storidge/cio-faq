@@ -81,13 +81,3 @@ For more details, refer to [About Volume Plugins](https://docs.storidge.com/dock
 To upgrade the volume plugin, use the `docker plugin` command to disable the plugin, upgrade, then re-enable the plugin.
 
 Refer to [Upgrade CIO Volume Plugin](https://docs.storidge.com/docker_volumes/upgrade_cio_volume_plugin.html) for details on using the `docker plugin` command.
-
-### What are Storidge profiles and why should I care?
-
-Profiles provide a simple way to declare application requirements for storage in a YAML formatted files. It simplifies the docker CLI and makes it easier to be consistent as profiles can be defined and used for applications, different classes of service, frameworks, customers, etc.
-
-See [Why profiles](https://guide.storidge.com/getting_started/why_profiles.html) for an example of how passing volume options to a `docker volume create` command is much more compact and simpler using a profile.
-
-### How do I use profiles?
-
-Check [Using profiles](https://guide.storidge.com/getting_started/using_profiles.html) for examples of how to use profiles.

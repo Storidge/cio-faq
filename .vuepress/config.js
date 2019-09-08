@@ -29,7 +29,8 @@ module.exports = {
               '/docker-volumes.md',
               '/drives.md',
               '/hardware.md',
-              '/integrations.md'
+              '/integrations.md',
+              '/profiles.md'
             ]
           }
         ]
