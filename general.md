@@ -98,17 +98,17 @@ Later it became obvious there are use cases where data need to persist beyond th
 
 Today persistent storage options for containers has expanded greatly through [volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) which enable many forms of storage, including traditional and external network storage, to provide data persistence for containerized apps. In particular, the industry has coalesced around the [Container Storage Interface](https://github.com/container-storage-interface/spec) specifications to unify the storage interface for container orchestration systems like Docker Swarm and Kubernetes.
 
-Storidge CIO provides persistent storage for containerized applications.
+Storidge's CIO software provisions and simplifies management of persistent storage for containerized applications.
 
 ### What is cloud native storage?
-
-Cloud native storage is a term used to describe storage for cloud native applications.
 
 The Cloud Native Computing Foundation defines [cloud native](https://github.com/cncf/toc/blob/master/DEFINITION.md) as an approach to building and running scalable apps in dynamic, automated environments. Containers, microservices, and immutable infrastructure managed through declarative APIs on an orchestration system exemplifies this approach.
 
 Cloud-native applications are containerized apps designed to run on cloud infrastructure, hence the term ‘native’. The storage consumed by such apps could be ephemeral. However storage for stateful apps are always persistent.
 
-The challenge for cloud native storage is how to efficiently address the storage requirements of very scalable apps in a dynamic environment, managed by highly automated systems such as Docker Swarm and Kubernetes. Refer to [Cloud Native Storage](https://guide.storidge.com/cio_vs_others/cloud_native_storage.html) for more details on different factors to consider.
+Cloud native storage is a term used to describe storage for cloud native applications. This description is unfortunately overly broad, and easily abused. A better approach is to clarify the challenges cloud native storage must solve. This precludes traditional storage which cannot efficiently cope with very scalable apps in a dynamic environment, managed by highly automated systems such as Docker Swarm and Kubernetes.
+
+Refer to [Cloud Native Storage](https://guide.storidge.com/cio_vs_others/cloud_native_storage.html) for more details on the challenges posed by cloud native environments.
 
 ### The docs.storidge.com and guide.storidge.com domains are unavailable for me
 
