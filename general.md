@@ -104,11 +104,23 @@ Storidge's CIO software provisions and simplifies management of persistent stora
 
 The Cloud Native Computing Foundation defines [cloud native](https://github.com/cncf/toc/blob/master/DEFINITION.md) as an approach to building and running scalable apps in dynamic, automated environments. Containers, microservices, and immutable infrastructure managed through declarative APIs on an orchestration system exemplifies this approach.
 
-Cloud-native applications are containerized apps designed to run on cloud infrastructure, hence the term ‘native’. The storage consumed by such apps could be ephemeral. However storage for stateful apps are always persistent.
+Cloud-native applications are containerized apps designed to run on cloud infrastructure, hence the term ‘native’. The storage consumed by such apps could be ephemeral. However storage for stateful apps must be persistent.
 
-Cloud native storage is a term used to describe storage for cloud native applications. This description is unfortunately overly broad, and easily abused. A better approach is to clarify the challenges cloud native storage must solve. This precludes traditional storage which cannot efficiently cope with very scalable apps in a dynamic environment, managed by highly automated systems such as Docker Swarm and Kubernetes.
+Cloud native storage is a term used to describe storage for cloud native applications. This description is however overly broad, and easily misused. A better approach is to clarify the qualities cloud native storage must have to efficiently cope with very scalable apps in a dynamic environment, managed by highly automated systems. Cloud native storage should:
 
-Refer to [Cloud Native Storage](https://guide.storidge.com/cio_vs_others/cloud_native_storage.html) for more details on the challenges posed by cloud native environments.
+- automate storage operations and abstract underlying storage infrastructure
+
+- tightly integrate and interoperate with container orchestrators
+
+- easily scale capacity and performance to address elastic demand
+
+- ensure consistent performance for dynamic, mobile containerized apps
+
+- provide differing storage capabilities and services according to workloads
+
+- automate the lifecycle of storage
+
+Refer to [Cloud Native Storage](https://guide.storidge.com/cio_vs_others/cloud_native_storage.html) for details on the challenges cloud native environments pose to storage.
 
 ### The docs.storidge.com and guide.storidge.com domains are unavailable for me
 
