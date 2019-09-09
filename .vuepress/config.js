@@ -1,7 +1,7 @@
 // /.vuepress/config.js
 
 module.exports = {
-    title: 'FAQ on persistent storage for containers', // Title of the website
+    title: '', // Title of the website
     description: "Frequently asked questions",
     themeConfig: {
         logo: 'https://storidge.com/wp-content/uploads/2019/04/logo_storidge_automated_2_370x100.png',
