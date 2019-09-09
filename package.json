@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/Storidge/cio-faq#readme",
   "dependencies": {
-    "vuepress": "^1.0.3"
+    "vuepress": "^0.14.10"
   }
 }
