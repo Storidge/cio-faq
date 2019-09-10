@@ -10,7 +10,7 @@ The drives to not have to be the same size because Storidge breaks any device do
 
 It is recommended to have fairly even capacity distributed across nodes. This minimizes the amount of rebuild time if a node goes down. Also having a node with much greater capacity going down, means the lost capacity has to absorbed by other nodes. This can greatly reduce the available capacity in the storage pool after rebuilding completes.
 
-### Do the drives in a node have to be same model and speed, or would a slower SSD (e.g. two NVMe plus one SSD) not cause any issues?
+### Can I mix drives in a node (e.g. two NVME plus one SSD) or they must be same model, speed, etc.?
 
 It is fine to mix SSD and NVME since we virtualize them into the same pool. We may want to differentiate them in the future but for now we treat them the same.
 
