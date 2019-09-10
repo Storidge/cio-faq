@@ -4,6 +4,18 @@
 
 Yes. Storidge can work with any drive type or vendor. For physical devices, the drive capacity and IOPS capability is auto discovered, aggregated and managed as a shared resource.
 
+### Do the three drives inside a node have to be exactly the same size (e.g. 512GB vs 500GB)?
+
+The drives to not have to be the same size because Storidge breaks any device down into small building blocks. Drives look like a collection of building blocks, some with more and some with less. This allows newer devices with larger capacity to be added later, or newer models to replace older devices while fully utilizing all available capacity.
+
+It is recommended to have fairly even capacity distributed across nodes. This minimizes the amount of rebuild time if a node goes down. Also having a node with much greater capacity going down, means the lost capacity has to absorbed by other nodes. This can greatly reduce the available capacity in the storage pool after rebuilding completes.
+
+### Do the drives in a node have to be same model and speed, or would a slower SSD (e.g. two NVMe plus one SSD) not cause any issues?
+
+It is fine to mix SSD and NVME since we virtualize them into the same pool. We may want to differentiate them in the future but for now we treat them the same.
+
+For bare metal servers, Storidge will collect performance data during cluster initialization. This cluster performance data collected becomes an IOPS and bandwidth resource that is managed by the QoS feature, i.e. you can set min and max setting for each volume/application. Depending on configuration, mixing NVME and SSD devices may negatively impact the accuracy of the collected performance data.
+
 ### Linux device names may not be consistent after system reboots. Is this an issue?
 
 This is not a problem as Storidge assigns and uses virtual serial numbers for consistency, instead of utilizing Linux drive letters.
