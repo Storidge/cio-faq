@@ -1,5 +1,13 @@
 # General
 
+### What is Storidge CIO?
+
+Orchestration systems create an abstraction layer on top of a group of hosts, so development teams can quickly deploy applications on logical resources. Similarly, Storidge's Container I/O (CIO) is a tool that creates a storage abstraction layer for stateful applications to persist, share and manage data on logical resources.
+
+Cloud native apps are orchestrated, scalable, mobile, and storage agnostic. These traits make older storage technologies a poor fit. Storidge's CIO was purpose built to solve application data management challenges in these new orchestrated environments. It eliminates the manual effort, inconsistencies, and tedium in trying to patch external networked storage into an orchestrated environment.
+
+See [Introduction](https://guide.storidge.com/what_is_cio/introduction.html) for benefits CIO provides to developers and operators.
+
 ### Will there always be a "community" (free) edition? Or do I get presented with a license fee later?
 
 Yes, there will always be a Community Edition (free). Note that the free edition is up to 5 nodes and 10 TBs of capacity.
