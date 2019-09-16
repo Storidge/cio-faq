@@ -26,13 +26,17 @@ Storidge clusters run in cloud instances, virtual machines or bare metal servers
 
 Delivering the same API, CLI and user experience across all platforms saves time as there is no more waiting for data center resources to free up. Developers can write apps off a VirtualBox cluster on their laptop and know that it will operate the same way on the cloud.
 
-### Is there a plan on Ubuntu 18.04 LTS support?
+### Is Ubuntu 18.04 LTS supported?
 
-We are currently porting to the 4.15 Linux kernel. RHEL 8 and Ubuntu 18.04 is out but we are just waiting for Centos 8 to be released. We expect this to happen soon and anticipate Ubuntu 18.04 support in early Q4.
+Support for Ubuntu 18.04 was added in release V1.0.0-2968.
+
+We will be adding support for RHEL 8 and Centos 8, once Centos 8 to be released. We expect this to happen soon and anticipate support in early Q4.
 
 ### When is support for 4.15 Linux kernel available?
 
-We are waiting for Centos 8 to drop before adding support. This will likely happen in the next few weeks, at which point we will port for both Centos 8 and Ubuntu 18.04. Actual port is partially completed already.
+Support for Ubuntu 18.04 was added in release V1.0.0-2968.
+
+We are waiting for Centos 8 to drop before adding support for both RHEL8 and Centos 8. This is expected to happen early Q4. 
 
 ### Does Storidge have training resources where I can learn more or share with others?
 
