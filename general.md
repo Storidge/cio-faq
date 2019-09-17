@@ -2,11 +2,43 @@
 
 ### What is Storidge CIO?
 
-Orchestration systems create an abstraction layer on top of a group of hosts, so development teams can quickly deploy applications on logical resources. Similarly, Storidge's Container I/O (CIO) is a tool that creates a storage abstraction layer for stateful applications to persist, share and manage data on logical resources.
+Storidge Container I/O (CIO) is a fully automated, unique software stack that runs on virtual machines, cloud instances and bare metal hosts, with predictable performance.
 
-Cloud native apps are orchestrated, scalable, mobile, and storage agnostic. These traits make older storage technologies a poor fit. Storidge's CIO was purpose built to solve application data management challenges in these new orchestrated environments. It eliminates the manual effort, inconsistencies, and tedium in trying to patch external networked storage into an orchestrated environment.
+Orchestration systems create an abstraction layer on top of a group of hosts, so development teams can quickly deploy applications on logical resources. Similarly, Storidge CIO creates an orchestrated storage abstraction layer for stateful applications to persist, share and manage data on any logical resources.  
+
+Cloud native apps are orchestrated, scalable, mobile, and storage agnostic. These traits make older storage technologies a poor fit. Storidge CIO was purpose built to solve application data management challenges in these new orchestrated environments. It eliminates the manual effort, inconsistencies, and tedium in trying to patch external networked storage into an orchestrated environment.
 
 See [Introduction](https://guide.storidge.com/what_is_cio/introduction.html) for benefits CIO provides to developers and operators.
+
+### What key problems does Storidge CIO uniquely solve?
+
+Storidge CIO allows developers to easily create environments for stateful applications on top of clustered hosts that can be quickly tested, deployed, and predictably scaled. It solves data management challenges in an orchestrated environment that is secure, highly available and delivers consistent performance.
+
+### What are the major advantages of Storidge CIO and why?
+
+- Storidge CIO enables development teams to be more productive and operations to be more efficient. It automates storage infrastructure management, so developers can focus on writing applications which create business value.
+
+- Storidge CIO enables applications and data to be more portable, scalable, and mobile by abstracting infrastructure.  
+
+- Storidge CIO works for existing applications, as well as new cloud native applications.
+
+### How does automating performance management benefit my applications?
+
+- Automated performance management enables cloud native applications to scale both vertically and horizontally with consistent and predictable performance.
+
+- Automated isolation between applications delivers guaranteed performance for all applications, without a conflict for resources.
+
+- Storage orchestration and automated data locality ensure frequently accessed data is close to the application, without node constraints or API extensions.
+
+- Performance boundaries can be set or changed to meet growing demands with minimal operator effort.
+
+### How does Storidge CIO compare to Docker volumes, software defined storage, enterprise storage?
+
+Storidge CIO is a more complete solution to delivering scalable, persistent storage for containers than anything in the market, due to its purpose-built, automated storage stack.
+
+Docker volumes, software defined storage, and enterprise storage are not automated, nor are they specifically designed around orchestrated microservices and highly scalable containers.
+
+Refer to [CIO vs Others](https://guide.storidge.com/cio_vs_others/overview.html) for a more complete comparison.
 
 ### Will there always be a "community" (free) edition? Or do I get presented with a license fee later?
 
@@ -17,8 +49,6 @@ The generous limits are there so the Community Edition can be deployed for serio
 ### What are the limits of the Community Edition (CE)?
 
 The Community Edition is free forever. It does have a limit of up to 5 Storidge nodes in a Swarm or Kubernetes cluster. The storage capacity in the cluster is limited to 10 TBs.
-
-We will be announcing Workgroup Edition and Enterprise Edition if you want to add extra functionality, e.g. more nodes and capacity, multi-zones for higher availability, auto tiering, etc.
 
 ### Can Storidge run in the cloud? On premise? Both?
 
@@ -36,7 +66,7 @@ We will be adding support for RHEL 8 and Centos 8, once Centos 8 to be released.
 
 Support for Ubuntu 18.04 was added in release V1.0.0-2968.
 
-We are waiting for Centos 8 to drop before adding support for both RHEL8 and Centos 8. This is expected to happen early Q4. 
+We are waiting for Centos 8 to drop before adding support for both RHEL8 and Centos 8. This is expected to happen early Q4.
 
 ### Does Storidge have training resources where I can learn more or share with others?
 
