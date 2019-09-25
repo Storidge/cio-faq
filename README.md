@@ -1,3 +1,9 @@
+---
+title: faq on persistent storage; faq on docker volume
+description: Get answers on docker volumes for Swarm and persistent volumes for Kubernetes 
+lang: en-US
+---
+
 ![Logo](https://i.imgur.com/FfIj2NA.png)
 
 # Frequently Asked Questions
