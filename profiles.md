@@ -1,5 +1,5 @@
 ---
-title: faq on Storidge profiles
+title: Profiles
 description: What are Storidge profiles and why should I care?
 lang: en-US
 ---

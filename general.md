@@ -1,5 +1,5 @@
 ---
-title: faq on Storidge
+title: General
 description: What is Storidge CIO, what problems does it solve, and what are the key advantages?
 lang: en-US
 ---

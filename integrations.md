@@ -1,5 +1,5 @@
 ---
-title: faq on Storidge integrations
+title: Integrations
 description: How does Storidge integrate with other tools I am using?
 lang: en-US
 ---

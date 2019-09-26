@@ -1,5 +1,5 @@
 ---
-title: faq on drive requirements for Storidge
+title: Drives
 description: What drive vendors are supported, can drive be mixed, can drive be added?
 lang: en-US
 ---

@@ -1,5 +1,5 @@
 ---
-title: faq on docker swarm and storidge
+title: Docker Swarm
 description: Are swarm nodes in storidge cluster or are they separate?
 lang: en-US
 ---

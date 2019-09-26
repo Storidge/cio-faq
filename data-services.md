@@ -1,5 +1,5 @@
 ---
-title: data services for docker containers
+title: Data Services
 description: What data services are available for docker containers and swarm services?
 lang: en-US
 ---

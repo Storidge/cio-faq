@@ -1,5 +1,5 @@
 ---
-title: cluster operation with Swarm and Kubernetes
+title: Cluster
 description: Questions on operating a Storidge cluster for Swarm and Kubernetes
 lang: en-US
 ---

@@ -1,5 +1,5 @@
 ---
-title: faq on docker volumes from storidge
+title: Docker Volumes
 description: How do I create a docker volume for compose, dockerfile,or docker service?
 lang: en-US
 ---

@@ -1,5 +1,5 @@
 ---
-title: faq on Storidge hardware requirements
+title: Hardware
 description: What are the hardware requirements to run Storidge software?
 lang: en-US
 ---
