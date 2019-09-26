@@ -1,3 +1,9 @@
+---
+title: faq on Storidge profiles
+description: What are Storidge profiles and why should I care?
+lang: en-US
+---
+
 # Profiles
 
 ### What are Storidge profiles and why should I care?

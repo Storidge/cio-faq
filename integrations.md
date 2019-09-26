@@ -1,3 +1,9 @@
+---
+title: faq on Storidge integrations
+description: How does Storidge integrate with other tools I am using?
+lang: en-US
+---
+
 # Integrations
 
 ### Does CIO integrate with other tools I’m using?

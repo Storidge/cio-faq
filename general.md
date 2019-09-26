@@ -1,3 +1,9 @@
+---
+title: faq on Storidge
+description: What is Storidge CIO, what problems does it solve, and what are the key advantages?
+lang: en-US
+---
+
 # General
 
 ### What is Storidge CIO?

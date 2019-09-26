@@ -1,12 +1,18 @@
+---
+title: faq on docker swarm and storidge
+description: Are swarm nodes in storidge cluster or are they separate?
+lang: en-US
+---
+
 # Docker Swarm
 
 ### Do Swarm cluster nodes join the Storidge cluster, or they are separate?
 
-The Storidge software runs hyper-converged with the Swarm, i.e. they can be the same nodes. Just as Swarm provides orchestration for containers, Storidge provides orchestration for volumes in the cluster. 
+The Storidge software runs hyper-converged with the Swarm, i.e. they can be the same nodes. Just as Swarm provides orchestration for containers, Storidge provides orchestration for volumes in the cluster.
 
 ### Do all Swarm nodes need to be members of the Storidge cluster, or can Storidge nodes be a subset of Swarm?
 
-Not all Swarm manager nodes have to be in the Storidge cluster. The Storidge cluster just needs to have at least one Swarm manager node. 
+Not all Swarm manager nodes have to be in the Storidge cluster. The Storidge cluster just needs to have at least one Swarm manager node.
 
 ### How can I setup a Storidge cluster without running your install script? We bootstrap Swarm nodes already.
 

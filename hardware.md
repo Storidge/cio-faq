@@ -1,3 +1,9 @@
+---
+title: faq on Storidge hardware requirements
+description: What are the hardware requirements to run Storidge software?
+lang: en-US
+---
+
 # Hardware
 
 ### Is there a hardware compatibility list?

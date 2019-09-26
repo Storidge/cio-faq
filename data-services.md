@@ -1,4 +1,10 @@
-# Data Services 
+---
+title: data services for docker containers
+description: What data services are available for docker containers and swarm services?
+lang: en-US
+---
+
+# Data Services
 
 ### We need to limit the space a volume can take. Currently running out of space is show stopper for applications.
 
@@ -19,10 +25,9 @@ For more info, read the [Effortless Data Locality blog](https://storidge.com/blo
 Yes, Storidge supports the concept of an interface container for NFS. This puts a stateless NFS container in front of any volume and allows access to the NFS share from anywhere in the cluster or outside the cluster.
 
 Possible use case are 1) easy sharing of data between containerized workloads and apps running in virtual servers on the local subnet, 2) migrating data from outside the Storidge cluster to containerized workloads running in the cluster.
- 
+
 ### How does the replication layer handle concurrent access from multiple hosts?
 
 Multi access to a volume across a cluster of nodes requires a shared volume. Storidge allows any volume to be turned into a shared volume through an NFS interface container. This associates a stateless NFS container with the volume which travels with the volume if it is rescheduled to a different node. Since the NFS container is assigned a persistent IP address off a macvlan interface, this means moving the shared volume to a new node is transparent to the service replicas using it, e.g. on a node failure.
 
 On the backend as host I/Os are received by the NFS instance, the I/Os are passed through the file system to the shared volume presented by our block device driver. The replication for the volume happens at the block level and is strictly consistent.
-

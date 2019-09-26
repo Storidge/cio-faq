@@ -1,3 +1,9 @@
+---
+title: faq on drive requirements for Storidge
+description: What drive vendors are supported, can drive be mixed, can drive be added?
+lang: en-US
+---
+
 # Drives
 
 ### Can Storidge work with any drive vendor?

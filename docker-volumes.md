@@ -1,3 +1,9 @@
+---
+title: faq on docker volumes from storidge
+description: How do I create a docker volume for compose, dockerfile,or docker service?
+lang: en-US
+---
+
 # Docker Volumes
 
 ### Do I have to use cio CLI commands to create volumes for docker containers or services?
