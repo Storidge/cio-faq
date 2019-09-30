@@ -26,6 +26,8 @@ Get answers quickly by entering keywords in the search bar above.
 
 [Integrations](/integrations.md)
 
+[Nodes](/nodes.md)
+
 [Profiles](/profiles.md)
 
 This FAQ is a work in progress. If you have questions not in this FAQ, please join our [cio-user Slack channel](http://storidge.com/join-cio-slack/) to post your questions.
