@@ -16,6 +16,12 @@ Cloud native apps are orchestrated, scalable, mobile, and storage agnostic. Thes
 
 See [Introduction](https://guide.storidge.com/what_is_cio/introduction.html) for benefits CIO provides to developers and operators.
 
+### Is there an explanation of how Storidge CIO works?
+
+There is a [quick overview](https://guide.storidge.com/what_is_cio/introduction.html#why-cio) of the Storidge software and its benefits for developers and operators.
+
+The [How it works](https://docs.storidge.com/introduction/how_it_works.html) link covers how Storidge abstracts infrastructure to create a data management platform for orchestration systems such as Docker Swarm and Kubernetes.
+
 ### What key problems does Storidge CIO uniquely solve?
 
 Storidge CIO allows developers to easily create environments for stateful applications on top of clustered hosts that can be quickly tested, deployed, and predictably scaled. It solves data management challenges in an orchestrated environment that is secure, highly available and delivers consistent performance.

@@ -43,6 +43,7 @@ module.exports = {
               '/drives.md',
               '/hardware.md',
               '/integrations.md',
+              '/nodes.md',
               '/profiles.md'
             ]
           }

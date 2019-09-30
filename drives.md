@@ -22,6 +22,14 @@ It is fine to mix SSD and NVME since we virtualize them into the same pool. We m
 
 For bare metal servers, Storidge will collect performance data during cluster initialization. This cluster performance data collected becomes an IOPS and bandwidth resource that is managed by the QoS feature, i.e. you can set min and max setting for each volume/application. Depending on configuration, mixing NVME and SSD devices may negatively impact the accuracy of the collected performance data.
 
+## Is it possible to run Storidge CIO with 3 x 24GB drives on a node?
+
+Yes, you can run with 3 x 24GB drives per node on a virtual server. Although the recommendation is to use 100GB drives, smaller capacities will work for testing the Storidge software. However if a data collection process was started because the Storidge software thinks you have a physical server, the 3 x 24GB drives will not work.
+
+The Storidge software runs a data collection process after initialization on physical servers. This is to create an IOPS and bandwidth budget that is allocated on demand to individual volumes. As performance limits are assigned to applications, the Storidge software will update you if there is not enough performance available to support apps.  
+
+You can forward a report from the `cioctl report` command to support@storidge.com to confirm if your VM instance and environment is on the supported list.
+
 ### Linux device names may not be consistent after system reboots. Is this an issue?
 
 This is not a problem as Storidge assigns and uses virtual serial numbers for consistency, instead of utilizing Linux drive letters.
@@ -30,7 +38,7 @@ In addition, if a drive is faulted, removed from the storage pool and later adde
 
 ### Does Storidge need to take over all the drives on a node?
 
-No. Storidge is designed for installation into a running cluster. To avoid accidental data loss, Storidge will automatically discover and add only raw devices (i.e. no file system or partitions) to the storage pool.
+No. Storidge is designed for installation into a running cluster. To avoid accidental data loss, Storidge will automatically discover and add only raw devices (i.e. drives with no file system or partitions) to the storage pool.
 
 ### How do I check if a drive can be used by Storidge?
 

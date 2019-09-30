@@ -6,10 +6,6 @@ lang: en-US
 
 # Cluster
 
-### Do you have a node label for Storidge or cio nodes? It would help for service constraints.
-
-Active cio nodes have label 'cio=true'. When a cio node is cordoned for maintenance, the label will be changed to 'cio=false'
-
 ### If we have to migrate volumes to another location, is it easy with this plugin?
 
 Moving a volume from one cluster to another cluster at a different location is a roadmap item.
@@ -28,23 +24,7 @@ Virtual volumes for containers are created from the storage pool. The virtual vo
 
 For more info on the abstraction layer, read the [How It Works blog](https://docs.storidge.com/introduction/how_it_works.html)
 
-### We need to dynamically add new nodes for more services, and then pull them when not needed.
-
-Adding and removing nodes dynamically is already supported and really simple.
-
-Checkout the guide for [Adding a node](https://guide.storidge.com/getting_started/add_node.html), and [Removing a node](https://guide.storidge.com/getting_started/remove_node.html).
-
-### What happens to the volume if a container is rescheduled to another node?
-
-Storidge has a storage orchestrator built in. If a container is rescheduled, the storage orchestrator automatically moves the volume to the new node so the scheduler can restart the app immediately.
-
-If a node fails, the volume is detached and temporarily attached (parked) on a backup node. When the scheduler restarts the container on a new node, the storage orchestrator will reattach the volume to the new node. The Storidge abstraction layer ensures that a container always has access to their data even as recovery operations to rebuild data redundancy are running in the background.
-
-### Can services on a node consume more capacity than amount of storage attached to that node?
-
-Storidge auto discovers and adds all attached block storage to a storage pool. The resources in the storage pool are shared and presented as an abstraction layer to applications. This abstraction layer makes it possible for services on a node to consume more capacity than is actually attached to a node.
-
-### Currently rebooting all my cluster instances for patches means tons of downtime. How does updates for Storidge work?
+### Currently rebooting all my cluster instances for patches means tons of downtime. How does updates for Storidge cluster work?
 
 Storidge supports online updates. The `cioctl node update` command is provided to simplify updates.
 
@@ -52,10 +32,20 @@ If an update is available, the node is cordoned, services drained to other nodes
 
 See the [docs for node maintenance](https://docs.storidge.com/cioctl_cli/node.html#cioctl-node-add).
 
-### What happens to the data when a node is in maintenance mode? Does all the data have to be rebuilt?
+### Why does Storidge do data collection during cluster initialization?
 
-When a node is placed in maintenance mode, Storidge turns on Changed Block Tracking (CBT) to keep track of which blocks have been changed. When a node exits maintenance mode and rejoins the cluster, Storidge will automatically rebuild the changed blocks on the previously cordoned node. With CBT, the rebuild operation completes much faster and have minimal performance impact on running applications.
+On physical servers with flash memory devices (e.g. SSD or NVME drives), the Storidge software runs a data collection process as part of cluster initialization. This is about a 30 minute process to gather performance data on the cluster. The end result is an IOPS and bandwidth budget that is used by the QoS capability to allocate performance on demand to individual volumes.
 
-### Does Storidge support changed block tracking to minimize rebuild time?
+As performance limits are assigned to applications, the Storidge software will adjust the IOPS and bandwidth budget. If there is insufficient performance available to support guaranteed performance for all apps, you will get an event notification.
 
-Yes, when a node is placed in maintenance mode, Storidge turns on Changed Block Tracking (CBT) to keep track of which blocks have been changed. When a node exits maintenance mode and rejoins the cluster, Storidge will automatically rebuild the changed blocks on the previously cordoned node. With CBT, the rebuild operation completes much faster and have minimal performance impact on running applications.
+### If I create a single node cluster do I still run `cioctl init <token>` command?
+
+For single node cluster, run `cioctl create` to start a cluster, then run the `cioctl init <token>` command to initialize the cluster for use. When initialization completes, you can login and start running apps.
+
+You can also run the `cioctl create --single-node` command to create a single node cluster. This will automatically create a cluster and initialize it. When initialization completes, just login and begin running apps.
+
+### If I have four VMs with 3 x 100GB drives, how much usable storage does that create?
+
+The Storidge software only uses 1GB per drive for metadata, so the rest is usable capacity.
+
+We do pre-allocate capacity from each node at the beginning, so the available capacity may look a bit lower. The reason is so that as host I/Os comes in, we can allocate capacity to thin provisioned volumes on the fly. This eliminates the latency of issuing a request across the network to another node to get new volume capacity allocated.
