@@ -44,7 +44,8 @@ module.exports = {
               '/hardware.md',
               '/integrations.md',
               '/nodes.md',
-              '/profiles.md'
+              '/profiles.md',
+              '/troubleshooting.md'
             ]
           }
         ]
