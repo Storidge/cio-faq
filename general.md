@@ -16,7 +16,7 @@ Cloud native apps are orchestrated, scalable, mobile, and storage agnostic. Thes
 
 See [Introduction](https://guide.storidge.com/what_is_cio/introduction.html) for benefits CIO provides to developers and operators.
 
-### Is there an explanation of how Storidge CIO works?
+### How does Storidge CIO work?
 
 There is a [quick overview](https://guide.storidge.com/what_is_cio/introduction.html#why-cio) of the Storidge software and its benefits for developers and operators.
 
@@ -26,7 +26,7 @@ The [How it works](https://docs.storidge.com/introduction/how_it_works.html) lin
 
 Storidge CIO allows developers to easily create environments for stateful applications on top of clustered hosts that can be quickly tested, deployed, and predictably scaled. It solves data management challenges in an orchestrated environment that is secure, highly available and delivers consistent performance.
 
-### What are the major advantages of Storidge CIO and why?
+### What are the major advantages of Storidge CIO?
 
 - Storidge CIO enables development teams to be more productive and operations to be more efficient. It automates storage infrastructure management, so developers can focus on writing applications which create business value.
 
@@ -44,7 +44,7 @@ Storidge CIO allows developers to easily create environments for stateful applic
 
 - Performance boundaries can be set or changed to meet growing demands with minimal operator effort.
 
-### How does Storidge CIO compare to Docker volumes, software defined storage, enterprise storage?
+### How does Storidge CIO compare to cloud native storage, software defined storage, or enterprise storage?
 
 Storidge CIO is a more complete solution to delivering scalable, persistent storage for containers than anything in the market, due to its purpose-built, automated storage stack.
 
@@ -58,7 +58,7 @@ Yes, there will always be a Community Edition (free). Note that the free edition
 
 The generous limits are there so the Community Edition can be deployed for serious work.
 
-### What are the limits of the Community Edition (CE)?
+### What are limits of the Community Edition (CE)?
 
 The Community Edition is free forever. It does have a limit of up to 5 Storidge nodes in a Swarm or Kubernetes cluster. The storage capacity in the cluster is limited to 10 TBs.
 
@@ -80,7 +80,7 @@ Support for Ubuntu 18.04 was added in release V1.0.0-2968.
 
 We are waiting for Centos 8 to drop before adding support for both RHEL8 and Centos 8. This is expected to happen early Q4.
 
-### Does Storidge have training resources where I can learn more or share with others?
+### Does Storidge have training resources? Where I can learn more or share with others?
 
 Yes, you can get an overview of the key capabilities and benefits of the CIO software through our [Introduction](https://guide.storidge.com/what_is_cio/introduction.html).
 
@@ -90,9 +90,11 @@ Next our [Getting Started guide](https://guide.storidge.com/getting_started/inst
 
 Here is a [list of resources](https://github.com/Storidge/resources) to get started. We will be continuing to update the list with more integrations, tools and information so please check back.
 
-### What is a “noisy neighbor” issue?
+### What is a noisy neighbor issue?
 
-A noisy neighbor issue is a term used in the storage industry for a situation that happens when the same resource (file system or storage system) is being used for multiple services or workloads. These 'neighbors' are sharing the same resource. Just as having loud neighbors prevents you from hearing your own television, having a neighbor in your file system who takes up more bandwidth or performance than you do prevents you from running your own processes at optimal capacity.
+A noisy neighbor issue is a term used in the storage industry for a situation that happens when the same resource (file system or storage system) is being used for multiple services or workloads. These 'neighbors' are sharing the same resource.
+
+Just as having loud neighbors prevents you from hearing your own television, having a neighbor in your file system who takes up more bandwidth or performance than you do prevents you from running your own application optimally.
 
 ### How is block storage better for noisy neighbor issues?
 
@@ -119,6 +121,26 @@ When [consistent hashing](https://www.acodersjourney.com/system-design-interview
 -	In addition to consuming network bandwidth that could have been otherwise used for write operations, crossing the network also adds variable latency. As latencies increase, delivering quality of service (QoS) guarantees to applications becomes very difficult or impossible. This is why no software defined storage implementation provide minimum IOPS guarantees.
 
 -	With data locked to one drive type, automatic tiering of data based on frequency of access is not possible. Instead a decision to select the correct storage type must be made prior to deployment. Changing the storage type to optimize performance or cost requires planned data migration and administrative overhead.
+
+### What is data locality?
+
+The idea is to keep compute resources close to data to maximize data processing. This is used in a number of contexts.
+
+With big data and Hadoop, data locality means moving the computation to the node that has the data. This is because the data is often too big to move efficiently. The same approach is applied in computational storage where the data is processed at the storage device level to reduce the amount of data that has to be moved.
+
+Data locality is also used with hyper-converged infrastructure (HCI). Here the idea is to keep a full copy of the data on the node where a virtual server or VM is running. This can be done through smart placement since VMs are generally static. When a VM is moved to a different node, the associated data can be migrated (e.g. storage vMotion).  
+
+For orchestrated environments running containerized workloads, maintaining data locality is a much harder problem. Workloads are short lived and can be rescheduled to different nodes dynamically. Node constraints can be used to maintain data locality but is costly in operator effort. API extensions can be installed to coordinate workload placement with schedulers, but adds another component to be managed.
+
+[Storidge's automatic data locality](https://storidge.com/blog/effortless-data-locality-with-storidge/) eliminates the need to set node constraints or use API extensions to force data locality for containers. Instead a storage orchestrator moves a volume to the container when it is rescheduled. As host I/Os comes in on the new node, the accessed data is automatically rebuilt to maintain data locality.
+
+### What is automatic data locality?
+
+Data locality is the idea of keeping compute resources close to data to maximize data processing.
+
+For orchestrated environments such as Docker Swarm and Kubernetes, maintaining data locality for stateful applications is a much harder problem. Containerized workloads are short lived and can be rescheduled to different nodes dynamically.
+
+[Storidge automates data locality](https://storidge.com/blog/effortless-data-locality-with-storidge/) for containerized workloads so no operator effort is required. When a container is rescheduled, a storage orchestrator automatically moves its volume to the new node. As host I/Os comes in on the new node, the accessed data is automatically rebuilt by Storidge so data locality is maintained.
 
 ### Why is automatic data locality better than consistent hashing?
 
