@@ -6,6 +6,12 @@ lang: en-US
 
 # Troubleshooting
 
+### I ran the `cioctl report` command. Where do I find the report?
+
+The output of the `cioctl report` command is in the /var/lib/storidge directory.
+
+Please forward the report to support@storidge.com with details of the error you are troubleshooting.
+
 ### Insufficient cluster capacity available to create this vdisk
 
 Error message:  "Fail: Add vd: Insufficient cluster capacity available to create this vdisk. Use smaller size"
@@ -14,4 +20,4 @@ If you are running a Storidge cluster on virtual servers or VMs, this error come
 
 The Storidge software will normally only run the data collection on physical servers. However the data collection can be started on virtual servers or VMs that are not on the supported list.
 
-Please run the `cioctl report` command and forward the report in /var/lib/storidge directory to support@storidge.com. The report command will collect configuration information and logs including information on the virtual server. When forwarding the report, please make a request to add the virtual server to the supported list. 
+Please run the `cioctl report` command and forward the report in /var/lib/storidge directory to support@storidge.com. The report command will collect configuration information and logs including information on the virtual server. When forwarding the report, please make a request to add the virtual server to the supported list.

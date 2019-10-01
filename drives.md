@@ -22,7 +22,7 @@ It is fine to mix SSD and NVME since we virtualize them into the same pool. We m
 
 For bare metal servers, Storidge will collect performance data during cluster initialization. This cluster performance data collected becomes an IOPS and bandwidth resource that is managed by the QoS feature, i.e. you can set min and max setting for each volume/application. Depending on configuration, mixing NVME and SSD devices may negatively impact the accuracy of the collected performance data.
 
-## Is it possible to run Storidge CIO with 3 x 24GB drives on a node?
+### Is it possible to run Storidge CIO with 3 x 24GB drives on a node?
 
 Yes, you can run with 3 x 24GB drives per node on a virtual server. Although the recommendation is to use 100GB drives, smaller capacities will work for testing the Storidge software. However if a data collection process was started because the Storidge software thinks you have a physical server, the 3 x 24GB drives will not work.
 
