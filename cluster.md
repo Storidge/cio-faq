@@ -24,7 +24,7 @@ Virtual volumes for containers are created from the storage pool. The virtual vo
 
 For more info on the abstraction layer, read the [How It Works blog](https://docs.storidge.com/introduction/how_it_works.html)
 
-### Currently rebooting all my cluster instances for patches means tons of downtime. How does updates for Storidge cluster work?
+### How does updates for Storidge cluster work? Currently rebooting all my cluster instances for patches means tons of downtime. 
 
 Storidge supports online updates. The `cioctl node update` command is provided to simplify updates.
 

@@ -69,7 +69,7 @@ Yes. Drives can be added to expand storage capacity.
 
 This is easily done through the `cioctl drive add` command and is non-disruptive. Follow this [link](https://docs.storidge.com/cioctl_cli/drive.html) for drive management commands.
 
-### If I need more capacity, can cloud block storage be expanded? Will it be detected and used?
+### Can cloud block storage be expanded? Will it be detected and used?
 
 Storidge supports adding cloud block storage (or physical drives) to nodes. These new resources will be detected and can be easily added to the storage pool with the `cioctl drive add` command. See info for [adding drive](https://docs.storidge.com/cioctl_cli/drive.html#cioctl-drive-add)
 

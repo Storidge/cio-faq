@@ -36,7 +36,7 @@ While Storidge CIO will operate off one network interface, dual interfaces provi
 
 Yes, Storidge CIO has been tested with 100GbE interfaces on bare metal servers.
 
-### If I have multiple network interfaces, how do I specify which interface Storidge uses?
+### How do I specify which network interface Storidge uses? I have multiple network interfaces 
 
 When you run `cioctl create` to start a cluster, it detects the network interfaces, lists them, and will suggest the first IP address. Example:
 

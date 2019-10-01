@@ -6,7 +6,7 @@ lang: en-US
 
 # Troubleshooting
 
-### I ran the `cioctl report` command. Where do I find the report?
+### Where is the report from the `cioctl report` command?
 
 The output of the `cioctl report` command is in the /var/lib/storidge directory.
 

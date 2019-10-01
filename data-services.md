@@ -6,7 +6,7 @@ lang: en-US
 
 # Data Services
 
-### We need to limit the space a volume can take. Currently running out of space is show stopper for applications.
+### Can I limit the space a volume takes? Currently running out of space is show stopper for applications.
 
 Storidge create volumes from a shared storage pool. Most Storidge volumes are thin provisioned (thick provisioning available also) at specified capacity. If the capacity is not grown, that's the limit the application is allowed to consume. Storidge provides event messages at 70%, 80% and 90% volume capacity used, so operators can take steps to grow capacity using resources from the storage pool.
 

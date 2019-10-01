@@ -10,7 +10,7 @@ lang: en-US
 
 Active cio nodes have label 'cio=true'. When a cio node is cordoned for maintenance, the label will be changed to 'cio=false'
 
-### We need to dynamically add new nodes for more services, and then pull them when not needed.
+### Can I add new nodes for more services, and then pull them when not needed?
 
 Adding and removing nodes dynamically is supported and really simple. Run the `cioctl join-token` command to create a session token. Then copy and paste the `cioctl add` command string to the new node.
 
@@ -26,7 +26,7 @@ If a node fails, the volume is detached and temporarily attached (parked) on a b
 
 Storidge auto discovers and adds all attached block storage to a storage pool. The resources in the storage pool are shared and presented as an abstraction layer to applications. This abstraction layer makes it possible for services on a node to consume more capacity than is actually attached to a node.
 
-See [How it works](https://docs.storidge.com/introduction/how_it_works.html) for more info on the Storidge abstraction layer. 
+See [How it works](https://docs.storidge.com/introduction/how_it_works.html) for more info on the Storidge abstraction layer.
 
 ### What happens to the data when a node is in maintenance mode? Does all the data have to be rebuilt?
 
