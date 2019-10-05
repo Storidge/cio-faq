@@ -32,4 +32,4 @@ Get answers quickly by entering keywords in the search bar above.
 
 [Troubleshooting](/troubleshooting.md)
 
-This FAQ is a work in progress. If you have questions not in this FAQ, please join our [cio-user Slack channel](http://storidge.com/join-cio-slack/) to post your questions.
+This FAQ is a work in progress. If you have questions not in this FAQ, please join our [community Slack channel](http://storidge.com/join-cio-slack/) to post your questions.

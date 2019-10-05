@@ -24,7 +24,7 @@ Virtual volumes for containers are created from the storage pool. The virtual vo
 
 For more info on the abstraction layer, read the [How It Works blog](https://docs.storidge.com/introduction/how_it_works.html)
 
-### How does updates for Storidge cluster work? Currently rebooting all my cluster instances for patches means tons of downtime. 
+### How does updates for Storidge cluster work? Currently rebooting all my cluster instances for patches means tons of downtime.
 
 Storidge supports online updates. The `cioctl node update` command is provided to simplify updates.
 
@@ -49,3 +49,9 @@ You can also run the `cioctl create --single-node` command to create a single no
 The Storidge software only uses 1GB per drive for metadata, so the rest is usable capacity.
 
 We do pre-allocate capacity from each node at the beginning, so the available capacity may look a bit lower. The reason is so that as host I/Os comes in, we can allocate capacity to thin provisioned volumes on the fly. This eliminates the latency of issuing a request across the network to another node to get new volume capacity allocated.
+
+### Can I reboot a cluster with a missing or failed node?
+
+Storidge supports booting a cluster with one missing or failed node. After the cluster is reformed, the missing or failed node will show status 'maintenance'.
+
+The Storidge software allows 30 minutes for a maintenance node to be restored. If the maintenance node is not recovered and rejoined to the cluster within 30 minutes, it will be automatically removed so rebuild of data that was on the maintenance node can proceed.
