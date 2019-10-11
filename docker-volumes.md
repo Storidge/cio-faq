@@ -76,7 +76,7 @@ Refer to [Volumes for Services](https://docs.storidge.com/docker_volumes/volumes
 
 ### Does Storidge have a docker volume plugin?
 
-Yes, Storidge provides a docker volume plugin which is automatically installed as part of a Storidge CIO software installation.
+Yes, Storidge provides a [docker volume plugin](https://hub.docker.com/plugins/storidge-volume-plugin) which is automatically installed as part of a Storidge CIO software installation.
 
 This volume plugin enables request for storage to be passed to the Storidge CIO software whether from a `docker run`, `docker service create`, `docker volume create` command or Docker Compose file.  
 
@@ -87,3 +87,9 @@ For more details, refer to [About Volume Plugins](https://docs.storidge.com/dock
 To upgrade the volume plugin, use the `docker plugin` command to disable the plugin, upgrade, then re-enable the plugin.
 
 Refer to [Upgrade CIO Volume Plugin](https://docs.storidge.com/docker_volumes/upgrade_cio_volume_plugin.html) for details on using the `docker plugin` command.
+
+### Does Storidge have a CSI driver or volume plugin?
+
+Yes, a [Storidge CSI driver](https://hub.docker.com/_/storidge-csi-driver) is available.
+
+This driver passes requests for persistent volume claims or persistent volumes to the Storidge CIO software. The driver supports declarative input and enables storage for pods to be dynamically provisioned on demand based on storage classes or profiles.

@@ -43,6 +43,7 @@ module.exports = {
               '/drives.md',
               '/hardware.md',
               '/integrations.md',
+              '/kubernetes-storage.md',
               '/nodes.md',
               '/profiles.md',
               '/troubleshooting.md'
