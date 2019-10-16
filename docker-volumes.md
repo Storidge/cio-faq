@@ -80,7 +80,7 @@ Yes, Storidge provides a [docker volume plugin](https://hub.docker.com/plugins/s
 
 This volume plugin enables request for storage to be passed to the Storidge CIO software whether from a `docker run`, `docker service create`, `docker volume create` command or Docker Compose file.  
 
-For more details, refer to [About Volume Plugins](https://docs.storidge.com/docker_volumes/about_volume_plugins.html).
+For more details, refer to [Install Volume Plugin](https://docs.storidge.com/docker_volumes/install_volume_plugin.html).
 
 ### How do I upgrade Storidge's docker volume plugin?
 
