@@ -30,13 +30,15 @@ The Storidge CIO software has a data locality feature. So unlike most software d
 
 ### Why are dual network interfaces recommended in hardware requirements, e.g. dual 1GbE or dual 10GbE?
 
-While Storidge CIO will operate off one network interface, dual interfaces provides greater network bandwidth and isolation. It allows one interface to be dedicated to internode storage traffic (backend), and the second interface assigned for front end applications.
+While Storidge CIO will operate off one network interface, dual interfaces provides greater network bandwidth and isolation. It allows one interface to be dedicated to internode storage traffic (backend), and the second interface assigned for frontend applications.
+
+This is particularly important for use cases where data throughput from frontend applications conflicts with internode storage traffic. Use a dedicated network interface for the storage network. 
 
 ### Does Storidge CIO work on 100GbE interfaces?
 
 Yes, Storidge CIO has been tested with 100GbE interfaces on bare metal servers.
 
-### How do I specify which network interface Storidge uses? I have multiple network interfaces 
+### How do I specify which network interface Storidge uses? I have multiple network interfaces
 
 When you run `cioctl create` to start a cluster, it detects the network interfaces, lists them, and will suggest the first IP address. Example:
 
