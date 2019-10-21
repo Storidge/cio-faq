@@ -14,7 +14,7 @@ Please forward the report to support@storidge.com with details of the error you 
 
 ### Insufficient cluster capacity available to create this vdisk
 
-Error message:  "Fail: Add vd: Insufficient cluster capacity available to create this vdisk. Use smaller size"
+**Error message:**  "Fail: Add vd: Insufficient cluster capacity available to create this vdisk. Use smaller size"
 
 If you are running a Storidge cluster on virtual servers or VMs, this error comes from a data collection process that creates twenty volumes and runs fio to collect performance data for Storidge's QoS feature.
 
@@ -47,7 +47,7 @@ To restore the cordoned node, you can:
 
 ### dockerd: msg="Node 085d698b3d2e/10.0.2.235, added to failed nodes list"
 
-Error message:  dockerd: time="2019-10-19T03:18:22.862011422Z" level=info msg="Node 085d698b3d2e/10.0.2.235, added to failed nodes list"
+**Error message:**  dockerd: time="2019-10-19T03:18:22.862011422Z" level=info msg="Node 085d698b3d2e/10.0.2.235, added to failed nodes list"
 
 The error message indicates that internode cluster traffic is being interrupted. This could be a result of network interface failure or network bandwidth being saturated with too much incoming data. This will impact the ability of the Storidge cluster to maintain state.  
 
@@ -63,14 +63,14 @@ For use cases handling a lot of front end data, split off the storage traffic to
 
 When creating the Storidge cluster, you can specify which network interface to use with the `--ip` flag, e.g. run `cioctl create --ip 10.0.1.51`. When you run the `cioctl node join` command on the storage nodes, it will suggest an IP address from the same subnet.
 
-5. Verify if incoming data is going to just one node. Consider approaches to spread incoming data to multiple nodes.
+4. Verify if incoming data is going to just one node. Consider approaches to spread incoming data to multiple nodes.
 
-6. In calculations for data throughput, note that for every 100MB/s of incoming data, there is a multiple on the storage network. For 2-copy volumes, 100MB/s will be written to local node and 100MB/s will go through the network interface to other nodes as replicated data.
+5. In calculations for data throughput, note that for every 100MB/s of incoming data, there is a multiple on the storage network. For 2-copy volumes, 100MB/s will be written to local node and 100MB/s will go through the network interface to other nodes as replicated data.
 
 ### dockerd: dockerd: level=warning msg="failed to create proxy for port 9999: listen tcp :9999: bind: address already in use"
 
-Error message: dockerd: time="2019-10-10T17:35:59.961861284Z" level=warning msg="failed to create proxy for port 9999: listen tcp :9999: bind: address already in use"
+**Error message:** dockerd: time="2019-10-10T17:35:59.961861284Z" level=warning msg="failed to create proxy for port 9999: listen tcp :9999: bind: address already in use"
 
 The error message indicates a network port conflict between services. The example above indicates that port number 9999 is being used by more than one service on the node.
 
-Verify there are no conflicts with [port numbers used by Storidge](https://docs.storidge.com/prerequisites/ports.html) cluster. 
+Verify there are no conflicts with [port numbers used by Storidge](https://docs.storidge.com/prerequisites/ports.html) cluster.
