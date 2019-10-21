@@ -32,7 +32,9 @@ The Storidge CIO software has a data locality feature. So unlike most software d
 
 While Storidge CIO will operate off one network interface, dual interfaces provides greater network bandwidth and isolation. It allows one interface to be dedicated to internode storage traffic (backend), and the second interface assigned for frontend applications.
 
-This is particularly important for use cases where data throughput from frontend applications conflicts with internode storage traffic. Use a dedicated network interface for the storage network. 
+This is particularly important for use cases where data throughput from frontend applications conflicts with internode storage traffic. Use a dedicated network interface for the storage network.
+
+When creating the Storidge cluster, you can specify which network interface to use with the `--ip` flag, e.g. run `cioctl create --ip 10.0.1.51`. When you run the `cioctl node join` command on the storage nodes, it will suggest an IP address from the same subnet.
 
 ### Does Storidge CIO work on 100GbE interfaces?
 
