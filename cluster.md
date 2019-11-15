@@ -52,7 +52,9 @@ The `cio info` command returns information about total, used, free and provision
 
    5 nodes x 3 100GiB = 1500GiB - (1GiB x 15 drives) = 1485GiB total capacity in storage pool
 
-**Used capacity** is capacity that is allocated to both thin and thick provisioned volumes, plus capacity that is pre-allocated to each node. When data requests are received, the pre-allocated capacity are assigned to thin provisioned volumes so I/O requests can be completed immediately. This eliminates the latency of issuing a request across the network to another node to get volume capacity allocated. For example, with a 100GB, 2 copy thick provisioned volume:
+**Used capacity** is capacity that is allocated to both thin and thick provisioned volumes, plus capacity that is pre-allocated to each node. When data requests are received, the pre-allocated capacity are assigned to thin provisioned volumes so I/O requests can be completed immediately. This eliminates the latency of issuing a request across the network to another node to get volume capacity allocated.
+
+For example, with a 100GiB, 2 copy thick provisioned volume:
 
    100GiB x 2 copy = 200GiB used by volumes
    5 nodes x 50 allocation units x 16MiB = 4GiB pre-allocated capacity
@@ -62,7 +64,9 @@ The `cio info` command returns information about total, used, free and provision
 
    Free capacity = Total capacity - Used capacity
 
-**Provisioned capacity** is the specified capacity for all volumes (thin or thick provisioned) and includes capacity used for data redundancy. Since volumes can be thin provisioned, the provisioned capacity can be much larger than total capacity actually in the cluster, i.e. capacity can be is overprovisioned. Example with one 100GB, 2 copy thin provisioned volume and one 100GB, 3 copy thin provisioned volume:
+**Provisioned capacity** is the specified capacity for all volumes (thin or thick provisioned) and includes capacity used for data redundancy. Since volumes can be thin provisioned, the provisioned capacity can be much larger than total capacity actually in the cluster, i.e. capacity can be is overprovisioned.
+
+Example with one 100GB, 2 copy thin provisioned volume and one 100GB, 3 copy thin provisioned volume:
 
    (1 volume x 100GiB x 2 copy) + (1 volume x 100GiB x 3 copy) = 500GiB provisioned capacity
 
