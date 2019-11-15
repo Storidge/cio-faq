@@ -26,6 +26,8 @@ Get answers quickly by entering keywords in the search bar above.
 
 [Integrations](/integrations.md)
 
+[Kubernetes Storage](/kubernetes_storage.md)
+
 [Nodes](/nodes.md)
 
 [Profiles](/profiles.md)
