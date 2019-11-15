@@ -44,11 +44,35 @@ For single node cluster, run `cioctl create` to start a cluster, then run the `c
 
 You can also run the `cioctl create --single-node` command to create a single node cluster. This will automatically create a cluster and initialize it. When initialization completes, just login and begin running apps.
 
-### If I have four VMs with 3 x 100GB drives, how much usable storage does that create?
+### How is total capacity, used capacity, free capacity and provisioned capacity calculated?
 
-The Storidge software only uses 1GB per drive for metadata, so the rest is usable capacity.
+The `cio info` command returns information about total, used, free and provisioned capacity in the cluster.
 
-We do pre-allocate capacity from each node at the beginning, so the available capacity may look a bit lower. The reason is so that as host I/Os comes in, we can allocate capacity to thin provisioned volumes on the fly. This eliminates the latency of issuing a request across the network to another node to get new volume capacity allocated.
+**Total capacity** is the raw capacity of all drives in the storage pool, minus space allocated for metadata. Storidge reserves 1GiB per drive for metadata. Using a 5 node cluster with three 100GiB drives per node as an example:
+
+   5 nodes x 3 100GiB = 1500GiB - (1GiB x 15 drives) = 1485GiB total capacity in storage pool
+
+**Used capacity** is capacity that is allocated to both thin and thick provisioned volumes, plus capacity that is pre-allocated to each node. When data requests are received, the pre-allocated capacity are assigned to thin provisioned volumes so I/O requests can be completed immediately. This eliminates the latency of issuing a request across the network to another node to get volume capacity allocated. For example, with a 100GB, 2 copy thick provisioned volume:
+
+   100GiB x 2 copy = 200GiB used by volumes
+   5 nodes x 50 allocation units x 16MiB = 4GiB pre-allocated capacity
+   200GiB + 4GiB = 204GiB used capacity
+
+**Free capacity** is total capacity in storage pool minus the used capacity, i.e.
+
+   Free capacity = Total capacity - Used capacity
+
+**Provisioned capacity** is the specified capacity for all volumes (thin or thick provisioned) and includes capacity used for data redundancy. Since volumes can be thin provisioned, the provisioned capacity can be much larger than total capacity actually in the cluster, i.e. capacity can be is overprovisioned. Example with one 100GB, 2 copy thin provisioned volume and one 100GB, 3 copy thin provisioned volume:
+
+   (1 volume x 100GiB x 2 copy) + (1 volume x 100GiB x 3 copy) = 500GiB provisioned capacity
+
+**Allocated %** is the percentage number of allocation units assigned to a volume. Thick provisioned volumes are always 100% allocated. For example a 1GiB, 2 copy thick provisioned volume will have 128 allocation units:
+
+   1GiB x 2 copy = 2GiB / 16MiB = 128 allocation units
+
+A 1GiB, 2 copy thin provisioned volume with 8 allocation units is:
+
+  8 / 128 x 100 = 6.3% allocated
 
 ### Can I reboot a cluster with a missing or failed node?
 
