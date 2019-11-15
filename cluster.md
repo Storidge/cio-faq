@@ -57,7 +57,9 @@ The `cio info` command returns information about total, used, free and provision
 For example, with a 100GiB, 2 copy thick provisioned volume:
 
    100GiB x 2 copy = 200GiB used by volumes
-   5 nodes x 50 allocation units x 16MiB = 4GiB pre-allocated capacity
+
+5 nodes x 50 allocation units x 16MiB = 4GiB pre-allocated capacity
+
    200GiB + 4GiB = 204GiB used capacity
 
 **Free capacity** is total capacity in storage pool minus the used capacity, i.e.
