@@ -66,7 +66,7 @@ For example, with a 100GiB, 2 copy thick provisioned volume:
 
    Free capacity = Total capacity - Used capacity
 
-**Provisioned capacity** is the specified capacity for all volumes (thin or thick provisioned) and includes capacity used for data redundancy. Since volumes can be thin provisioned, the provisioned capacity can be much larger than total capacity actually in the cluster, i.e. capacity can be is overprovisioned.
+**Provisioned capacity** is the specified capacity for all volumes (thin or thick provisioned) and includes capacity used for data redundancy. Since volumes can be thin provisioned, the provisioned capacity can be much larger than total capacity actually in the cluster, i.e. capacity can be overprovisioned.
 
 Example with one 100GB, 2 copy thin provisioned volume and one 100GB, 3 copy thin provisioned volume:
 
