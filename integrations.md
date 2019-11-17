@@ -18,7 +18,9 @@ You can modify the [reference playbook](https://github.com/Storidge/terraform-aw
 
 ### Is there any way to have a "canned" Packer image with Storidge software?
 
-There is a github repo with Packer templates for generating AWS AMIs and DigitalOcean snapshot images. This uses the community edition of the Storidge CIO software. See https://github.com/Storidge/packer-cio
+There is a [github repo with Packer templates](https://github.com/Storidge/packer-cio) for generating AWS AMIs and DigitalOcean snapshot images. This uses the Community Edition of the Storidge CIO software.
+
+Step through the [guide](https://docs.storidge.com/integrations/packer.html) for an example of building an AWS AMI with Packer and Storidge.
 
 ### How is Portainer integrated with Storidge?
 
@@ -28,4 +30,4 @@ The Portainer service integrates through the [Storidge AP](https://storidge.com/
 
 ### Is there a Terraform reference for setting up Storidge cluster?
 
-There is a github repo for [setting up a Storidge cluster on AWS](https://github.com/Storidge/terraform-aws-swarm-cio) and also an [example for DigitalOcean Cloud](https://github.com/Storidge/terraform-do-swarm-cio).
+There is a [github repo](https://github.com/Storidge/terraform-aws-swarm-cio) for setting up a Storidge cluster on AWS and also an [example for DigitalOcean Cloud](https://github.com/Storidge/terraform-do-swarm-cio).
