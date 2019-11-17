@@ -85,3 +85,13 @@ A 1GiB, 2 copy thin provisioned volume with 8 allocation units (128MiB) is:
 Storidge supports booting a cluster with one missing or failed node. After the cluster is reformed, the missing or failed node will show status 'maintenance'.
 
 The Storidge software allows 30 minutes for a maintenance node to be restored. If the maintenance node is not recovered and rejoined to the cluster within 30 minutes, it will be automatically removed so rebuild of data that was on the maintenance node can proceed.
+
+### Can I extend the maintenance window from 30 minutes?
+
+Yes, you can increase the time for maintenance from the default 30 minutes. Use the `cioctl node show-time` command to see the remaining time left for maintenance.
+
+To extend time, use the `cioctl node extend-time` command. For example, to increase maintenance time by 15 minutes, run:
+
+```
+cioctl node extend-time 15
+```
