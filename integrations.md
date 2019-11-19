@@ -20,7 +20,7 @@ You can modify the [reference playbook](https://github.com/Storidge/terraform-aw
 
 There is a [github repo with Packer templates](https://github.com/Storidge/packer-cio) for generating AWS AMIs and DigitalOcean snapshot images. This uses the Community Edition of the Storidge CIO software.
 
-Step through the [guide](https://docs.storidge.com/integrations/packer.html) for an example of building an AWS AMI with Packer and Storidge.
+Step through the [Packer guide](https://docs.storidge.com/integrations/packer.html) for an example of building an AWS AMI with Packer and Storidge.
 
 ### How is Portainer integrated with Storidge?
 
@@ -30,7 +30,7 @@ The Portainer service integrates through the [Storidge AP](https://storidge.com/
 
 ### Does Storidge support Prometheus monitoring?
 
-Storidge cluster metrics for Prometheus are available at the /metrics endpoint of all nodes on port 8282. 
+Storidge cluster metrics for Prometheus are available at the /metrics endpoint of all nodes on port 8282.
 
 See [Prometheus integration](https://docs.storidge.com/integrations/prometheus.html) for details.
 
