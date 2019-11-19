@@ -32,7 +32,7 @@ The Portainer service integrates through the [Storidge AP](https://storidge.com/
 
 Storidge cluster metrics for Prometheus are available at the /metrics endpoint of all nodes on port 8282.
 
-See [Prometheus integration](https://docs.storidge.com/integrations/prometheus.html) for details.
+See [Prometheus integration](https://docs.storidge.com/integrations/prometheus.html) for list of exported metrics.
 
 ### Is there a Terraform reference for setting up Storidge cluster?
 

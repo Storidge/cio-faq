@@ -93,3 +93,9 @@ Refer to [Upgrade CIO Volume Plugin](https://docs.storidge.com/docker_volumes/up
 Yes, a [Storidge CSI driver](https://hub.docker.com/_/storidge-csi-driver) is available.
 
 This driver passes requests for persistent volume claims or persistent volumes to the Storidge CIO software. The driver supports declarative input and enables storage for pods to be dynamically provisioned on demand based on storage classes or profiles.
+
+### Can I migrate data on a docker volume to a Storidge volume?
+
+Use the `cioctl migrate docker` command to copy files from a docker named volume to a Storidge volume. You can also use the `--ip` flag to move data from a local docker volume to a remote volume on a Storidge cluster.
+
+See the [cioctl migrate](https://docs.storidge.com/cioctl_cli/migrate.html) documentation for usage info and examples.
