@@ -28,6 +28,12 @@ In a Swarm cluster, Storidge will deploy a Portainer service and Portainer agent
 
 The Portainer service integrates through the [Storidge AP](https://storidge.com/api) and automatically detects the Storidge components and presents an enhanced interface for you to manage the cluster. Look at the [Portainer integration](https://docs.storidge.com/integrations/portainer.html) for more info.
 
+### Does Storidge support Prometheus monitoring?
+
+Storidge cluster metrics for Prometheus are available at the /metrics endpoint of all nodes on port 8282. 
+
+See [Prometheus integration](https://docs.storidge.com/integrations/prometheus.html) for details.
+
 ### Is there a Terraform reference for setting up Storidge cluster?
 
 There is a [github repo](https://github.com/Storidge/terraform-aws-swarm-cio) for setting up a Storidge cluster on AWS and also an [example for DigitalOcean Cloud](https://github.com/Storidge/terraform-do-swarm-cio).

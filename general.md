@@ -8,9 +8,9 @@ lang: en-US
 
 ### What is Storidge CIO?
 
-Storidge Container I/O (CIO) is a fully automated, unique software stack that runs on virtual machines, cloud instances and bare metal hosts, with predictable performance.
+Storidge CIO (Container I/O) is automated cloud storage which delivers convenient, on-demand storage services for developers with storage expertise in our software stack.
 
-Orchestration systems create an abstraction layer on top of a group of hosts, so development teams can quickly deploy applications on logical resources. Similarly, Storidge CIO creates an orchestrated storage abstraction layer for stateful applications to persist, share and manage data on any logical resources.  
+Orchestration systems create an abstraction layer on top of a group of hosts, so development teams can quickly deploy applications on logical resources. Similarly, Storidge CIO creates a software abstraction layer for stateful applications to persist, share and manage data on any logical resources.  
 
 Cloud native apps are orchestrated, scalable, mobile, and storage agnostic. These traits make older storage technologies a poor fit. Storidge CIO was purpose built to solve application data management challenges in these new orchestrated environments. It eliminates the manual effort, inconsistencies, and tedium in trying to patch external networked storage into an orchestrated environment.
 
