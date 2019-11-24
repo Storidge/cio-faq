@@ -84,3 +84,8 @@ Replacement of the drive is non-distruptive to running applications.
 ### Should I use a hardware RAID controller or present drives directly to Storidge?
 
 Storidge can work with drives passed through a RAID controller. However, since RAID controllers will bottleneck performance, it is recommended to have Storidge operate drives directly to maximize performance.
+
+### How do I force the drive type to be ssd?
+
+In the `cioctl init` command, use the `--drive` option to set the drive type. Valid values are `ssd` and `hdd`. Example:
+`cioctl init 01391a8a --drive ssd`
