@@ -74,3 +74,12 @@ When creating the Storidge cluster, you can specify which network interface to u
 The error message indicates a network port conflict between services. The example above indicates that port number 9999 is being used by more than one service on the node.
 
 Verify there are no conflicts with [port numbers used by Storidge](https://docs.storidge.com/prerequisites/ports.html) cluster.
+
+
+### "iscsid: Kernel reported iSCSI connection 2:0 error"
+
+**Error message:** iscsid: Kernel reported iSCSI connection 2:0 error (1020 - ISCSI_ERR_TCP_CONN_CLOSE: TCP connection closed)
+
+The error message indicates an iscsi connectivity issue between cluster nodes. This could be a result of conflicts such as duplicate iscsi initiator names or other networking issues.
+
+For a multi-node cluster to function correctly, the ISCSI initiator name on each node much be unique. Display the ISCSI initiator name on each node by running `cat /etc/iscsi/initiatorname.iscsi`, and confirm they are different.
