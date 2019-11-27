@@ -96,6 +96,8 @@ This driver passes requests for persistent volume claims or persistent volumes t
 
 ### Can I migrate data on a docker volume to a Storidge volume?
 
-Use the `cioctl migrate docker` command to copy files from a docker named volume to a Storidge volume. You can also use the `--ip` flag to move data from a local docker volume to a remote volume on a Storidge cluster.
+Use the `cioctl migrate docker` command to copy files from a docker named volume to a Storidge volume on a local node.
+
+To migrate data on a docker volume to a remote Storidge cluster, use the `--ip` flag to specify the IP address of the Storidge cluster where the volume should be moved.
 
 See the [cioctl migrate](https://docs.storidge.com/cioctl_cli/migrate.html) documentation for usage info and examples.
