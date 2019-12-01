@@ -6,6 +6,10 @@ lang: en-US
 
 # Kubernetes Storage
 
+### Which Kubernetes versions does Storidge CIO support?
+
+Storidge CIO supports Kubernetes version 1.12, 1.13, 1.14, 1.15 and 1.16. We will continue to add support for additional Kubernetes versions in the future.
+
 ### Does Storidge have a CSI driver or volume plugin?
 
 Yes, a [Storidge CSI driver](https://hub.docker.com/_/storidge-csi-driver) is available.

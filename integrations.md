@@ -6,6 +6,12 @@ lang: en-US
 
 # Integrations
 
+### Will my existing Docker Swarm or Kubernetes applications work?
+
+Storidge CIO integrates with Docker Swarm and Kubernetes through volume plugins and is compatible with apps running on any standard Swarm or Kubernetes environment.
+
+You can easily migrate data from docker named volumes to a Storidge volumes using the `cioctl migrate docker` command. Once migrated, no code modifications are needed to restart the application using the Storidge volume.
+
 ### Does CIO integrate with other tools I’m using?
 
 Storidge is already tightly integrated with the Portainer user interface for managing a Swarm cluster. In addition, there are references for Ansible, Packer and Terraform to create images and automate deployment of clusters. These tools are available through our repos on https://github.com/storidge.

@@ -8,17 +8,19 @@ lang: en-US
 
 ### What is Storidge CIO?
 
-Storidge CIO (Container I/O) is automated cloud storage which delivers convenient, on-demand storage services for developers with storage expertise in our software stack.
+Storidge CIO (Container I/O) is software that makes it simple for developers and operators to deploy persistent storage for containerized applications. Developers can use standard tools such as Vagrant and Terraform to quickly deploy an environment for stateful application development.
 
-Orchestration systems create an abstraction layer on top of a group of hosts, so development teams can quickly deploy applications on logical resources. Similarly, Storidge CIO creates a software abstraction layer for stateful applications to persist, share and manage data on any logical resources.  
-
-Cloud native apps are orchestrated, scalable, mobile, and storage agnostic. These traits make older storage technologies a poor fit. Storidge CIO was purpose built to solve application data management challenges in these new orchestrated environments. It eliminates the manual effort, inconsistencies, and tedium in trying to patch external networked storage into an orchestrated environment.
+Orchestration systems create an abstraction layer on top of a group of hosts, so development teams can quickly deploy applications on logical resources. Similarly, Storidge CIO creates a software abstraction layer for stateful applications to persist, share and manage data on logical resources.
 
 See [Introduction](https://guide.storidge.com/what_is_cio/introduction.html) for benefits CIO provides to developers and operators.
 
 ### How does Storidge CIO work?
 
-There is a [quick overview](https://guide.storidge.com/what_is_cio/introduction.html#why-cio) of the Storidge software and its benefits for developers and operators.
+Storidge CIO creates a software abstraction layer using storage resources from a group of hosts. These hosts are bare metal, virtual servers, or cloud instances managed by an orchestration system. Storidge CIO enables you to easily provision volumes from the abstraction layer so stateful apps can persist, manage and share data.
+
+Without Storidge CIO, you have to wait for IT to provision from enterprise storage systems, or provision storage using cloud provider APIs. With Storidge CIO you can use standard tools such as Terraform and Ansible to deploy persistent storage as part of your development environment.
+
+See the [intro guide](https://guide.storidge.com/what_is_cio/introduction.html#why-cio) of the Storidge software and its benefits for developers and operators.
 
 The [How it works](https://docs.storidge.com/introduction/how_it_works.html) link covers how Storidge abstracts infrastructure to create a data management platform for orchestration systems such as Docker Swarm and Kubernetes.
 
@@ -33,6 +35,10 @@ Storidge CIO allows developers to easily create environments for stateful applic
 - Storidge CIO enables applications and data to be more portable, scalable, and mobile by abstracting infrastructure.  
 
 - Storidge CIO works for existing applications, as well as new cloud native applications.
+
+### Which operating systems does Storidge CIO?
+
+Storidge CIO software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
 
 ### How does automating performance management benefit my applications?
 

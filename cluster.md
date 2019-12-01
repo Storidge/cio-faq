@@ -26,11 +26,11 @@ For more info on the abstraction layer, read the [How It Works blog](https://doc
 
 ### How does updates for Storidge cluster work? Currently rebooting all my cluster instances for patches means tons of downtime.
 
-Storidge supports online updates. The `cioctl node update` command is provided to simplify updates.
+Storidge supports cluster aware updates. Cluster aware updating upgrade nodes to the latest software releases, while the cluster is online and services continue to run.
 
 If an update is available, the node is cordoned, services drained to other nodes, update software is downloaded and installed. When the software installation is completed, the node is rebooted and automatically rejoins the cluster.
 
-See the [docs for node maintenance](https://docs.storidge.com/cioctl_cli/node.html#cioctl-node-add).
+See [cioctl node update](https://docs.storidge.com/cioctl_cli/node.html#cioctl-node-update) info for details.
 
 ### Why does Storidge do data collection during cluster initialization?
 
