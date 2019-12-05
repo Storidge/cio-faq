@@ -40,7 +40,7 @@ The install script supports installing a particular version which matches the ve
 curl -fsSL ftp://104.131.153.182/pub/ce/cio-ce | sudo bash -s -- -f -r 3062
 ```
 
-The `-s` option directs bash to accept stdin and execute it. Parameters after `--` are presented to the script for processing. `f` specifies FTP protocol to download release 3062.
+The `-s` option directs bash to accept stdin and execute it. Parameters after `--` are presented to the script for processing. `-f` specifies FTP protocol to download release 3062.
 
 ### Why does Storidge do data collection during cluster initialization?
 
