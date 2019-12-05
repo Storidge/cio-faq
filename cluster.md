@@ -32,6 +32,16 @@ If an update is available, the node is cordoned, services drained to other nodes
 
 See [cioctl node update](https://docs.storidge.com/cioctl_cli/node.html#cioctl-node-update) info for details.
 
+### Is there a way to install a specific version of Storidge CIO?
+
+The install script supports installing a particular version which matches the version on the running cluster. For example, to install build 3062, run:
+
+```
+curl -fsSL ftp://104.131.153.182/pub/ce/cio-ce | sudo bash -s -- -f -r 3062
+```
+
+The `-s` option directs bash to accept stdin and execute it. Parameters after `--` are presented to the script for processing. `f` specifies FTP protocol to download release 3062.
+
 ### Why does Storidge do data collection during cluster initialization?
 
 On physical servers with flash memory devices (e.g. SSD or NVME drives), the Storidge software runs a data collection process as part of cluster initialization. This is about a 30 minute process to gather performance data on the cluster. The end result is an IOPS and bandwidth budget that is used by the QoS capability to allocate performance on demand to individual volumes.
