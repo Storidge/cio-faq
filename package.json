@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Storidge/cio-faq#readme",
   "dependencies": {
+    "serialize-javascript": "^2.1.1",
     "vuepress": "^1.0.3",
     "vuepress-plugin-sitemap": "^2.1.2"
   },
