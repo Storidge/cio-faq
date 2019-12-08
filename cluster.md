@@ -6,11 +6,11 @@ lang: en-US
 
 # Cluster
 
-### If we have to migrate volumes to another location, is it easy with this plugin?
+### Is it possible to migrate volumes to another location?
 
-Moving a volume from one cluster to another cluster at a different location is a roadmap item.
+`cioctl migrate` is used to move a volume from one Storidge cluster to another Storidge cluster.
 
-Concept is similar to Docker engine but for storage. As long as a Storidge engine is there, you can move the volume with a `volume move` command to a different cluster.
+`cioctl migrate docker` migrates docker named volumes, while `cioctl migrate generic` supports specifying the mountpoint for the data to be migrated. See [cioctl migrate](https://docs.storidge.com/cioctl_cli/migrate.html) docs for details.
 
 ### What about split brain? Do you need three managers minimum like Swarm?
 
