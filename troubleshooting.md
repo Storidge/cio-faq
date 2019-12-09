@@ -83,3 +83,8 @@ Verify there are no conflicts with [port numbers used by Storidge](https://docs.
 The error message indicates an iscsi connectivity issue between cluster nodes. This could be a result of conflicts such as duplicate iscsi initiator names or other networking issues.
 
 For a multi-node cluster to function correctly, the ISCSI initiator name on each node much be unique. Display the ISCSI initiator name on each node by running `cat /etc/iscsi/initiatorname.iscsi`, and confirm they are different.
+
+If the ISCSI initiator name is not unique, you can change it with:
+```
+echo "InitiatorName=`/sbin/iscsi-iname`" > /etc/iscsi/initiatorname.iscsi
+```
