@@ -88,3 +88,5 @@ If the ISCSI initiator name is not unique, you can change it with:
 ```
 echo "InitiatorName=`/sbin/iscsi-iname`" > /etc/iscsi/initiatorname.iscsi
 ```
+
+Since the ISCSI initiator name is used to setup connections to ISCSI targets during cluster initialization, it must be made unique before running `cioctl create` to start a cluster.
