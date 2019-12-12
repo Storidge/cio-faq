@@ -132,7 +132,7 @@ When creating the Storidge cluster, you can specify which network interface to u
 
 The Storidge software currently recognizes the virtual servers and cloud instances below:
 
-| Virtual Server/Cloud Instance        |                                |
+| System Product Name                  | Virtual Server/Cloud Instance  |
 | -------------------------------------|:-------------------------------|
 | Bochs                                | Qemu (emulated)                |
 | Droplet                              | Digital Ocean                  |
@@ -144,4 +144,4 @@ The Storidge software currently recognizes the virtual servers and cloud instanc
 | VirtualBox                           | VirtualBox                     |
 | VMware Virtual Platform              | VMware                         |
 
-Run `dmidecode -s system-product-name` to confirm if your instance is on the list. If not on the list, support can be quickly added. Please contact support@storidge.com.
+Run `dmidecode -s system-product-name` to confirm if your instance is on the list. If not on the list, support can be quickly added. Please pass request to support@storidge.com.
