@@ -12,9 +12,9 @@ Storidge CIO integrates with Docker Swarm and Kubernetes through volume plugins 
 
 You can easily migrate data from docker named volumes to a Storidge volumes using the `cioctl migrate docker` command. Once migrated, no code modifications are needed to restart the application using the Storidge volume.
 
-### Does CIO integrate with other tools I’m using?
+### Does Storidge CIO integrate with other tools I’m using?
 
-Storidge is already tightly integrated with the Portainer user interface for managing a Swarm cluster. In addition, there are references for Ansible, Packer and Terraform to create images and automate deployment of clusters. These tools are available through our repos on https://github.com/storidge.
+Storidge is already tightly integrated with the Portainer user interface for managing a Swarm cluster. In addition, there are references for Ansible, Grafana, Packer and Terraform to create images and automate deployment of clusters. These tools are available through our repos on https://github.com/storidge.
 
 Integrations are also planned for monitoring and logging frameworks. We prioritize development based on user requests so please do notify us of your preferred tools.
 
@@ -39,6 +39,14 @@ The Portainer service integrates through the [Storidge AP](https://storidge.com/
 Storidge cluster metrics for Prometheus are available via a containerized exporter.
 
 For instructions on enabling this feature and a list of exported metrics, please refer to [Prometheus integration](https://docs.storidge.com/integrations/prometheus.html).
+
+### How do I use Grafana with Storidge?
+
+Grafana is often paired with Prometheus to visualize metrics. Where Prometheus gathers time-series data, Grafana visualizes it.
+
+Before running Grafana, first setup Prometheus to serve metrics for the Storidge cluster. Refer to [Prometheus integration](https://docs.storidge.com/integrations/prometheus.html) to expose cluster stats at port 16995 on the /metrics endpoint.
+
+Next, follow steps in [Grafana integration](https://docs.storidge.com/integrations/grafana.html) to visualize the cluster metrics. You can download and use this [example Grafana dashboard](https://grafana.com/grafana/dashboards/11359) as a reference.
 
 ### Is there a Terraform reference for setting up Storidge cluster?
 

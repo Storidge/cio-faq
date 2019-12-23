@@ -1,6 +1,6 @@
 ---
 title: Docker Swarm
-description: Are swarm nodes in storidge cluster or are they separate?
+description: How does Storidge work with Docker Swarm?
 lang: en-US
 ---
 

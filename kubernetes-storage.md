@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Storage
-description: How do I create a persistent volume for Kubernetes pods?
+description: How does Storidge work with Kubernetes?
 lang: en-US
 ---
 
