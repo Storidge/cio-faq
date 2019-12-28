@@ -22,6 +22,14 @@ Integrations are also planned for monitoring and logging frameworks. We prioriti
 
 You can modify the [reference playbook](https://github.com/Storidge/terraform-aws-swarm-cio/blob/master/playbook.yml) for setting up a Storidge cluster on AWS.
 
+### How do I create Storidge volumes in an Ansible playbook?
+
+Ansible provides a [docker_swarm_service module](https://docs.ansible.com/ansible/latest/modules/docker_swarm_service_module.html) that enables docker services to be managed through a manager node.
+
+Storidge volumes are specified in the mounts specification of a playbook. The `source` parameter naming the volume, and the `target` parameter sets the path within the container. The `driver_config` parameter directs the volume create request to the Storidge cio volume plugin.
+
+See the [Storidge volumes with Ansible](https://docs.storidge.com/docker_volumes/volumes_with_ansible.html) guide for examples. 
+
 ### Is there any way to have a "canned" Packer image with Storidge software?
 
 There is a [github repo with Packer templates](https://github.com/Storidge/packer-cio) for generating AWS AMIs and DigitalOcean snapshot images. This uses the Community Edition of the Storidge CIO software.
