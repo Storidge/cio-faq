@@ -90,3 +90,16 @@ echo "InitiatorName=`/sbin/iscsi-iname`" > /etc/iscsi/initiatorname.iscsi
 ```
 
 Since the ISCSI initiator name is used to setup connections to ISCSI targets during cluster initialization, it must be made unique before running `cioctl create` to start a cluster.
+
+### "Fail: node is already a member of a multi-node cluster"
+
+**Error message:** Fail: node is already a member of a multi-node cluster
+
+This error message in syslog indicates an attempt to add a node to the cluster that is already a member. Check your script or playbook to verify that the `cioctl join` command is being issued to a storage(worker) node and not the primary (sds) node.
+
+This error can result in related message below which indicates the Storidge CIO kernel modules are incorrectly unloaded, breaking cluster initialization.  
+```
+[DFS] dfs_exit:18218:dfs module unloaded
+
+[VD ] vdisk_exit:2916:vd module unloaded
+```
