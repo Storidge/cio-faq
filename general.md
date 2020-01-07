@@ -8,9 +8,9 @@ lang: en-US
 
 ### What is Storidge CIO?
 
-Storidge CIO (Container I/O) is software that makes it simple for developers and operators to deploy persistent storage for containerized applications. Developers can use standard tools such as Vagrant and Terraform to quickly deploy an environment for stateful application development.
+Storidge CIO is the easiest way to automate your cloud storage infrastructure. It operates your storage infrastructure, ensuring data availability so you can focus on the things that matter the most.
 
-Orchestration systems create an abstraction layer on top of a group of hosts, so development teams can quickly deploy applications on logical resources. Similarly, Storidge CIO creates a software abstraction layer for stateful applications to persist, share and manage data on logical resources.
+Storidge CIO makes it really simple to deploy persistent storage for containerized applications. Support for standard tools, such as Vagrant, Terraform and Ansible, means developers and operators can programmatically deploy an environment for developing and running stateful applications.
 
 See [Introduction](https://guide.storidge.com/what_is_cio/introduction.html) for benefits CIO provides to developers and operators.
 
