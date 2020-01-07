@@ -26,15 +26,49 @@ The [How it works](https://docs.storidge.com/introduction/how_it_works.html) lin
 
 ### What key problems does Storidge CIO uniquely solve?
 
-Storidge CIO allows developers to easily create environments for stateful applications on top of clustered hosts that can be quickly tested, deployed, and predictably scaled. It solves data management challenges in an orchestrated environment that is secure, highly available and delivers consistent performance.
+**Automated Storage**
+Modern apps run in orchestrated environments with IT out of the provisioning cycle. This is why Storidge developed automated storage with developers and operators as key users.
+
+Automated storage means minimal or no dependency on scarce IT resources. It means storage infrastructure for stateful apps deployable as code. Automated storage provisions volumes on demand, moving data to rescheduled containers, and automatically expanding volume capacity as needed. It means automating failover to ensure high availability for applications, and recovery of data when infrastructure fails - with no operator effort.
+
+**Guaranteed Performance**
+Production environments consist of containers with different workloads running on the same server. The higher density of containers with many workloads competing for performance can create unpredictable response times for critical apps.
+
+Storidge solves contention of adjacent container workloads through performance isolation. This unique capability to set granular performance boundaries ensures consistent performance for critical apps, making it easier to predictably scale application performance.
+
+**Data Locality**
+Orchestration systems reschedule applications to new nodes for various reasons. This introduces variable network latency and inconsistent performance, creating issues for latency sensitive applications.  
+
+Storidge's automatic data locality rebuilds data on the same node as your container. Only the data used on the new node is rebuilt instead of the entire volume. This both ensures consistent performance while efficiently using a scarce network resource. Operations is greatly simplified as the extra effort to set node constraints or manage API extensions for data locality are eliminated.
+
+**Developer Centric**
+Designed for developers, a Storidge cluster is deployable as code using workflow tools such as Packer, Terraform and Ansible. Volumes for stateful apps are easily self-provisioned on demand through CLI/API interfaces, and with declarative inputs using application profiles. Automated storage operations and recovery means developers are no longer dependent on IT availability.
+
+With a storage abstraction layer isolating dependencies on underlying infrastructure, developers continue to work within native environments instead of learning and coding to cloud providers APIs.
+
+**Core, Edge & CLoud**
+Applications no longer just run in enterprise data centers. ITOps teams must deploy apps on a variety of platforms and environments - at the core, edge of network, and on the cloud.
+
+Storidge delivers the same CLI, API and user experiences on all platforms, so you can consistently deploy anywhere that best fits your workloads. Applying the same knowledge and processes everywhere speeds workflow, minimizes learning and ensures knowledge, tools and practices are reusable. This uniform approach also eliminates platform lock-in.
+
+**Storage-as-a-Service**
+With orchestration systems, IT is out of the provisioning cycle. This is why persistent storage must be delivered as a service so developers and operators can spend their best energies solving business problems and creating value. The storage stack should be an invisible member that is easily integrated into an application stack.
+
+This is why Storidge delivered storage as a software abstraction layer that automates the complexity of storage infrastructure management to deliver storage as a service. Tight integration with orchestration systems enables block, file and object datastores to be provisioned on demand through declarative, programmatic interfaces for cloud native apps and legacy applications.
 
 ### What are the major advantages of Storidge CIO?
 
 - Storidge CIO enables development teams to be more productive and operations to be more efficient. It automates storage infrastructure management, so developers can focus on writing applications which create business value.
 
-- Storidge CIO enables applications and data to be more portable, scalable, and mobile by abstracting infrastructure.  
+- Storidge ensures that your stateful applications stay responsive by providing guaranteed performance. This unique capability to set granular performance boundaries ensures consistent performance for critical apps, making it easier to predictably scale application performance.
 
-- Storidge CIO works for existing applications, as well as new cloud native applications.
+- Storidge's automatic data locality rebuilds data on the same node as your container. This both ensures consistent performance while efficiently using a scarce network resource. Operations is greatly simplified as the extra effort to set node constraints or manage API extensions for data locality are eliminated.
+
+- A Storidge cluster is deployable as code using workflow tools such as Packer, Terraform and Ansible. Volumes for stateful apps are easily self-provisioned on demand with declarative inputs using application profiles. Automated storage operations and recovery means developers are no longer dependent on IT availability.
+
+- Storidge delivers the same CLI, API and user experiences on all platforms, so you can consistently deploy anywhere that best fits your workloads. Applying the same knowledge and processes everywhere speeds workflow, minimizes learning and ensures knowledge, tools and practices are reusable.
+
+- The Storidge software automates storage infrastructure management to deliver storage as a service. Tight integration with orchestration systems enables block, file and object datastores to be provisioned on demand through declarative, programmatic interfaces for both cloud native apps and legacy applications.
 
 ### Which operating systems does Storidge CIO?
 
