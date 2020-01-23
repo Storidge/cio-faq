@@ -103,3 +103,13 @@ This error can result in related message below which indicates the Storidge CIO 
 
 [VD ] vdisk_exit:2916:vd module unloaded
 ```
+
+### Get http://172.23.8.104:8282/metrics: dial tcp 172.23.8.104:8282: connect: connection refused
+
+**Error message:** connect: connection refused
+
+Getting a "Connection refused" errors on requests to an API endpoint likely means that the API server on the node is not running.
+
+Run `ps aux |grep cio-api` to confirm. If not listed, run `cio-api &` on the node to restart the API.
+
+Also run `cioctl report` to generate a cluster report which will be saved to file /var/lib/storidge/report.txz. Please forward the cluster report to support@storidge.com with details of the error for analysis.
