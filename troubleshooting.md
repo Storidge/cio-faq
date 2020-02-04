@@ -113,3 +113,50 @@ Getting a "Connection refused" errors on requests to an API endpoint likely mean
 Run `ps aux |grep cio-api` to confirm. If not listed, run `cio-api &` on the node to restart the API.
 
 Also run `cioctl report` to generate a cluster report which will be saved to file /var/lib/storidge/report.txz. Please forward the cluster report to support@storidge.com with details of the error for analysis.
+
+
+### "cluster: Number of remote drives on host 0 (IP 10.11.14.87) 0 is not the expected 9"
+
+**Error message:** Number of remote drives on host 0 (IP 10.11.14.87) 0 is not the expected 9
+
+This error message during cluster initialization is an indicator of an unstable networking environment, or insufficient compute capacity to handle networking packets.
+
+The error indicates that node information was not properly passed to the primary node during cluster configuration. Example:
+```
+[root@EV15-HA1 ~]#  cioctl init 67a2c2e8
+Warning: Permanently added '10.11.14.90' (ECDSA) to the list of known hosts.
+cluster: initialization started
+cluster: Copy auto-multiNode-EV15-HA1.cfg to all nodes (NODE_NUMS:4)
+cluster: Initialize target
+cluster: Initialize initiator
+cluster: Start node initialization
+node: Clear drives
+node: Load module
+node: Add node backup relationship
+node: Check drives
+Adding disk /dev/sdb SSD to storage pool
+Adding disk /dev/sdc SSD to storage pool
+Adding disk /dev/sdd SSD to storage pool
+Adding disk /dev/sde SSD to storage pool
+Adding disk /dev/sdf SSD to storage pool
+Adding disk /dev/sdg SSD to storage pool
+Adding disk /dev/sdh SSD to storage pool
+Adding disk /dev/sdi SSD to storage pool
+Adding disk /dev/sdj SSD to storage pool
+Adding disk /dev/sdk SSD to storage pool
+Adding disk /dev/sdl SSD to storage pool
+Adding disk /dev/sdm SSD to storage pool
+node: Collect drive IOPS and BW: Total IOPS:26899  Total BW:1479.9MB/s
+node: Initializing metadata
+cluster: Node initialization completed
+cluster: Number of remote drives on host 0 (IP 10.11.14.87) 0 is not the expected 9
+cluster: Number of remote drives on host 1 (IP 10.11.14.88) 0 is not the expected 9
+cluster: Number of remote drives on host 2 (IP 10.11.14.89) 0 is not the expected 9
+cluster: Number of remote drives on host 3 (IP 10.11.14.90) 0 is not the expected 9
+cluster: Cannot initialize cluster
+cluster: 'cioctl clusterdeinit default.cfg 1' started
+cluster: Killing MongoDB daemons
+cluster: Killing cio daemons
+cluster: Uninitialize initiator
+cluster: Uninitialize target
+```
