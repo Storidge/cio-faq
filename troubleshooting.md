@@ -160,3 +160,13 @@ cluster: Killing cio daemons
 cluster: Uninitialize initiator
 cluster: Uninitialize target
 ```
+
+### "cioctl: insmod: ERROR: could not insert module "
+
+**Error message:** Feb  4 16:48:02 EV15-HA1 cioctl: insmod: ERROR: could not insert module /lib/modules/3.10.0-1062.el7.x86_64/kernel/drivers/storidge/vd.ko: File exists
+
+If you are running with VMs in a vSphere environment, the error message above means that secure boot is enabled for the VM. Since the Storidge software will insert a kernel module, secure boot needs to be disabled.
+
+To turn secure boot off, VM must first be powered off. Then right-click VM, select Edit Settings. Click the VM Options tab, and expand Boot Options. Under Boot Options, ensure that firmware is set to EFI.
+
+Deselect the Secure Boot check box to disable secure boot. Click OK.
