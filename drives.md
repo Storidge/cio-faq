@@ -87,5 +87,5 @@ Storidge can work with drives passed through a RAID controller. However, since R
 
 ### How do I force the drive type to be ssd?
 
-In the `cioctl init` command, use the `--drive` option to set the drive type. Valid values are `ssd` and `hdd`. Example:
-`cioctl init 01391a8a --drive ssd`
+In the `cioctl create` command, use the `--drive` option to set the drive type. Valid values are `ssd` and `hdd`. Example:
+`cioctl create --drive ssd`
