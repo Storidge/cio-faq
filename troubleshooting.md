@@ -167,6 +167,6 @@ cluster: Uninitialize target
 
 If you are running with VMs in a vSphere environment, the error message above means that secure boot is enabled for the VM. Since the Storidge software will insert a kernel module, secure boot needs to be disabled.
 
-To turn secure boot off, VM must first be powered off. Then right-click VM, select Edit Settings. Click the VM Options tab, and expand Boot Options. Under Boot Options, ensure that firmware is set to EFI.
+To turn secure boot off, the VM must first be powered off. Then right-click the VM, and select Edit Settings. Click the VM Options tab, and expand Boot Options. Under Boot Options, ensure that firmware is set to EFI.
 
 Deselect the Secure Boot check box to disable secure boot. Click OK.

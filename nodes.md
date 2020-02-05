@@ -35,3 +35,15 @@ When a node is placed in maintenance mode, Storidge turns on Changed Block Track
 ### Does Storidge support changed block tracking to minimize time for node rebuilds?
 
 Yes, when a node is placed in maintenance mode, Storidge turns on Changed Block Tracking (CBT) to keep track of which blocks have been changed. When a node exits maintenance mode and rejoins the cluster, Storidge will automatically rebuild the changed blocks on the previously cordoned node. With CBT, the rebuild operation completes much faster and have minimal performance impact on running applications.
+
+### How do I 'clean state' a node?
+
+Sometimes it may be necessary to clean state a failed node for reuse. This removes configuration information that makes a node part of a cluster. To clean state a node, run the following commands on the node:
+
+```
+systemctl disable cio
+rm -f /etc/storidge/config/default.config
+reboot
+```
+
+To verify that a node is clean, run `cio info`. It should return a message that the system is not initialized. 
