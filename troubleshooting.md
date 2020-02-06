@@ -170,3 +170,29 @@ If you are running with VMs in a vSphere environment, the error message above me
 To turn secure boot off, the VM must first be powered off. Then right-click the VM, and select Edit Settings. Click the VM Options tab, and expand Boot Options. Under Boot Options, ensure that firmware is set to EFI.
 
 Deselect the Secure Boot check box to disable secure boot. Click OK.
+
+
+### Configuration Error: Could not determine drive count on node 10.11.14.87 at 10.11.14.87. Verify data drives available
+
+**Error message:** Configuration Error: Could not determine drive count on node 10.11.14.87 at 10.11.14.87. Verify data drives available
+
+This error message while initializing a cluster indicates that while drives are available on the nodes, they may be formatted with filesystem or have partitions. The Storidge software will not add these drives to the storage pool since there may be user data.
+
+Use the `file -sL <device>` command to check. For example, drives sdb, sdc and sdd below can be discovered and consumed by Storidge. However drive sda below will be skipped.
+
+```
+root@ubuntu-16:~# file -sL /dev/sd*
+/dev/sda:  DOS/MBR boot sector
+/dev/sda1: Linux rev 1.0 ext2 filesystem data (mounted or unclean), UUID=f838091f-e90f-4037-8352-4d7d2775667a (large files)
+/dev/sda2: DOS/MBR boot sector; partition 1 : ID=0x8e, start-CHS (0x5d,113,21), end-CHS (0x3ff,254,63), startsector 2, 40439808 sectors, extended partition table (last)
+/dev/sda5: LVM2 PV (Linux Logical Volume Manager), UUID: Tx8zdm-LIyl-Am4b-0Bbu-iJxv-yKsI-IR9NtO, size: 20705181696
+/dev/sdb:  data
+/dev/sdc:  data
+/dev/sdd:  data
+```
+
+Use `dd` to wipe out metadata and make the drive available for Storidge. For example, to clear drive /dev/sdb:
+
+```
+dd if=/dev/zero of=/dev/sdb bs=1M count=300
+```
