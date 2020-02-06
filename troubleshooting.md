@@ -172,7 +172,7 @@ To turn secure boot off, the VM must first be powered off. Then right-click the 
 Deselect the Secure Boot check box to disable secure boot. Click OK.
 
 
-### Configuration Error: Could not determine drive count on node 10.11.14.87 at 10.11.14.87. Verify data drives available
+### Configuration Error: Cannot determine drive count on node at 10.11.14.87. Verify data drives have no filesystem or partitions
 
 **Error message:** Configuration Error: Could not determine drive count on node 10.11.14.87 at 10.11.14.87. Verify data drives available
 
