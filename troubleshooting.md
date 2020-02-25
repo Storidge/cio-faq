@@ -197,7 +197,7 @@ Use `dd` to wipe out metadata and make the drive available for Storidge. For exa
 dd if=/dev/zero of=/dev/sdb bs=1M count=300
 ```
 
-### Cluster breaks on vSphere VMs with errors "[SDS] node_mgmt:14380:WARNING: node pingable: node[0].node_id:ab7dc460 [172.164.2.21] last_alive_sec"
+### Cluster breaks on VMware vSphere snapshot with error "[SDS] node_mgmt:14380:WARNING: node pingable: node[0].node_id:ab7dc460 [172.164.2.21] last_alive_sec"
 
 **Error message:** [SDS] node_mgmt:14380:WARNING: node pingable: node[0].node_id:ab7dc460 [172.164.2.21] last_alive_sec
 
