@@ -46,4 +46,6 @@ rm -f /etc/storidge/config/default.config
 reboot
 ```
 
-To verify that a node is clean, run `cio info`. It should return a message that the system is not initialized. 
+For Storidge software versions 3137 and above, run `cioctl node clean --force` to ignore current node status and force a node to clean state.
+
+To verify that a node is clean, run `cio info`. It should return a message that the system is not initialized.

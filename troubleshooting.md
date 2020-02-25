@@ -196,3 +196,19 @@ Use `dd` to wipe out metadata and make the drive available for Storidge. For exa
 ```
 dd if=/dev/zero of=/dev/sdb bs=1M count=300
 ```
+
+### Cluster breaks on vSphere VMs with errors "[SDS] node_mgmt:14380:WARNING: node pingable: node[0].node_id:ab7dc460 [172.164.2.21] last_alive_sec"
+
+**Error message:** [SDS] node_mgmt:14380:WARNING: node pingable: node[0].node_id:ab7dc460 [172.164.2.21] last_alive_sec
+
+When you take a snapshot of a vSphere virtual machine with memory, e.g. for Veeam backup:
+
+- The virtual machine becomes unresponsive or inactive
+- The virtual machine does not respond to any commands
+- You cannot ping the virtual machine
+
+This is expected behavior in ESXi. Before a backup a snapshot is taken, the backup job runs, and finally the snapshot is removed. This causes the VM to lose connectivity for a period dependent on the amount of memory and changed data.
+
+Storidge uses heartbeats to monitor the health of cluster nodes. When a VM does not respond for an extended time it is marked as a failed node. Losing access to multiple nodes can potentially break a cluster. It is not recommended to use VMware snapshot for backup of Storidge nodes.
+
+Storidge will be introducing a backup service for cluster workloads. This will be based on volume snapshots, i.e. the backups are at granularity of a container and does not require a node to be suspended.
