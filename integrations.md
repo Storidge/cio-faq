@@ -49,6 +49,12 @@ The Portainer service needs to run on a public overlay network to detect IP addr
 For example, in your compose file you can specify this with:
 
 ```
+networks:
+  priv_net:
+    internal: true
+  pub_net:
+    internal: false
+
 portainer:
     volumes:
       - portainer_data:/data
@@ -60,6 +66,8 @@ portainer:
         aliases:
           - private-portainer
 ```
+
+Note there isn’t any externally available ports exposed.
 
 ### Does Storidge support Prometheus monitoring?
 
