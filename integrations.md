@@ -28,7 +28,7 @@ Ansible provides a [docker_swarm_service module](https://docs.ansible.com/ansibl
 
 Storidge volumes are specified in the mounts specification of a playbook. The `source` parameter naming the volume, and the `target` parameter sets the path within the container. The `driver_config` parameter directs the volume create request to the Storidge cio volume plugin.
 
-See the [Storidge volumes with Ansible](https://docs.storidge.com/docker_volumes/volumes_with_ansible.html) guide for examples. 
+See the [Storidge volumes with Ansible](https://docs.storidge.com/docker_volumes/volumes_with_ansible.html) guide for examples.
 
 ### Is there any way to have a "canned" Packer image with Storidge software?
 
@@ -41,6 +41,25 @@ Step through the [Packer guide](https://docs.storidge.com/integrations/packer.ht
 In a Swarm cluster, Storidge will deploy a Portainer service and Portainer agent after initializing a cluster.
 
 The Portainer service integrates through the [Storidge AP](https://storidge.com/api) and automatically detects the Storidge components and presents an enhanced interface for you to manage the cluster. Look at the [Portainer integration](https://docs.storidge.com/integrations/portainer.html) for more info.
+
+### Can Portainer be accessed behind a proxy like nginx? This avoids exposing Portainer port to internet
+
+The Portainer service needs to run on a public overlay network to detect IP addresses for API communications, e.g. the Storidge API.
+
+For example, in your compose file you can specify this with:
+
+```
+portainer:
+    volumes:
+      - portainer_data:/data
+    networks:
+      pub_net:
+        aliases:
+          - public-portainer
+      priv_net:
+        aliases:
+          - private-portainer
+```
 
 ### Does Storidge support Prometheus monitoring?
 
