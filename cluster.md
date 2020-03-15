@@ -32,7 +32,7 @@ If an update is available, the node is cordoned, services drained to other nodes
 
 See [cioctl node update](https://docs.storidge.com/cioctl_cli/node.html#cioctl-node-update) info for details.
 
-### Is there a way to install a specific version of Storidge CIO?
+### Is there a way to install or update a specific version of Storidge CIO?
 
 The install script supports installing a particular version which matches the version on the running cluster. For example, to install build 3062, run:
 
