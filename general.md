@@ -70,9 +70,9 @@ This is why Storidge delivered storage as a software abstraction layer that auto
 
 - The Storidge software automates storage infrastructure management to deliver storage as a service. Tight integration with orchestration systems enables block, file and object datastores to be provisioned on demand through declarative, programmatic interfaces for both cloud native apps and legacy applications.
 
-### Which operating systems does Storidge CIO?
+### Which operating systems does Storidge CIO support?
 
-Storidge CIO software currently supports CentOS 7.5, 7.6 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
+Storidge CIO software currently supports CentOS 7 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), and Ubuntu 18.04LTS (4.15 kernel).
 
 ### How does automating performance management benefit my applications?
 
