@@ -69,6 +69,12 @@ portainer:
 
 Note there isn’t any externally available ports exposed.
 
+### How do I restart or redeploy the Portainer service?
+
+You can redeploy the Portainer service and agents with `docker stack deploy -c /etc/storidge/config/portainer.yml portainer`
+
+However you may have to first clear the existing service. You do this with `docker stack remove portainer`.
+
 ### Does Storidge support Prometheus monitoring?
 
 Storidge cluster metrics for Prometheus are available via a containerized exporter.
