@@ -161,7 +161,7 @@ cluster: Uninitialize initiator
 cluster: Uninitialize target
 ```
 
-### "cioctl: insmod: ERROR: could not insert module "
+### "cioctl: insmod: ERROR: could not insert module"
 
 **Error message:** Feb  4 16:48:02 EV15-HA1 cioctl: insmod: ERROR: could not insert module /lib/modules/3.10.0-1062.el7.x86_64/kernel/drivers/storidge/vd.ko: File exists
 
@@ -170,6 +170,14 @@ If you are running with VMs in a vSphere environment, the error message above me
 To turn secure boot off, the VM must first be powered off. Then right-click the VM, and select Edit Settings. Click the VM Options tab, and expand Boot Options. Under Boot Options, ensure that firmware is set to EFI.
 
 Deselect the Secure Boot check box to disable secure boot. Click OK.
+
+### "Unable to connect to the Docker environment" from Portainer UI
+
+**Error message:** Unable to connect to the Docker environment
+
+The Portainer service connects to Docker through a unix socket on the local node. This error indicates Portainer is not able to talk to the Docker API.
+
+Remove the existing Portainer service with `docker stack remove portainer`. Then redeploy the Portainer service and agents with `docker stack deploy -c /etc/storidge/config/portainer.yml portainer`
 
 
 ### Configuration Error: Cannot determine drive count on node at 10.11.14.87. Verify data drives have no filesystem or partitions
