@@ -38,14 +38,14 @@ Yes, when a node is placed in maintenance mode, Storidge turns on Changed Block 
 
 ### How do I 'clean state' a node?
 
-Sometimes it may be necessary to clean state a failed node for reuse. This removes configuration information that makes a node part of a cluster. To clean state a node, run the following commands on the node:
+Sometimes it may be necessary to clean state a failed node for reuse. This removes configuration information that makes a node part of a cluster.
 
-```
-systemctl disable cio
-rm -f /etc/storidge/config/default.config
-reboot
-```
-
-For Storidge software versions 3137 and above, run `cioctl node clean --force` to ignore current node status and force a node to clean state.
+Run `cioctl node clean --force` to ignore current node status and force a node to clean state.
 
 To verify that a node is clean, run `cio info`. It should return a message that the system is not initialized.
+
+### `docker node ls` shows one of the node status is down? How do I recover?
+
+Run `systemctl restart docker` to restart the docker daemon.
+
+If the node status is still down, run `docker ps` on the node to verify there are no services running on the node. Then perform a hard reset or power cycle the node.
