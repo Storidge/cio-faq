@@ -47,6 +47,7 @@ module.exports = {
               '/license.md',
               '/nodes.md',
               '/profiles.md',
+              '/software.md',
               '/troubleshooting.md'
             ]
           }
