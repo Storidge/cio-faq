@@ -167,6 +167,11 @@ cd /var/lib/storidge/cio-3249-u18.amd64
 ./install
 ```
 
+Clean the node before running initialization again:
+```
+cioctl node clean --force
+```
+
 ### "cioctl: insmod: ERROR: could not insert module"
 
 **Error message:** Feb  4 16:48:02 EV15-HA1 cioctl: insmod: ERROR: could not insert module /lib/modules/3.10.0-1062.el7.x86_64/kernel/drivers/storidge/vd.ko: File exists
@@ -282,6 +287,11 @@ cd /var/lib/storidge/cio-3249-u18.amd64
 ./install
 ```
 
+Clean the node before running initialization again:
+```
+cioctl node clean --force
+```
+
 ### Bad iscsid.service configuration iscsid.socket: Socket service iscsid.service not loaded, refusing.
 
 **Error message:** iscsid.socket: Socket service iscsid.service not loaded, refusing.
@@ -292,4 +302,9 @@ Try reinstalling the Storidge software to correct the issue. For example, on rel
 ```
 cd /var/lib/storidge/cio-3249-u18.amd64
 ./install
+```
+
+Clean the node before running initialization again:
+```
+cioctl node clean --force
 ```
