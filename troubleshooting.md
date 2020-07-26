@@ -119,9 +119,9 @@ Also run `cioctl report` to generate a cluster report which will be saved to fil
 
 **Error message:** Number of remote drives on host 0 (IP 10.11.14.87) 0 is not the expected 9
 
-This error message during cluster initialization is an indicator of an unstable networking environment, or insufficient compute capacity to handle networking packets.
+This error during cluster initialization can result from a bad configuration in the iscsid.service file.
 
-The error indicates that node information was not properly passed to the primary node during cluster configuration. Example:
+Example error from cluster initialization:
 ```
 [root@EV15-HA1 ~]#  cioctl init 67a2c2e8
 Warning: Permanently added '10.11.14.90' (ECDSA) to the list of known hosts.
@@ -159,6 +159,12 @@ cluster: Killing MongoDB daemons
 cluster: Killing cio daemons
 cluster: Uninitialize initiator
 cluster: Uninitialize target
+```
+
+Try reinstalling the Storidge software to correct the issue. For example, on release 3249 on Ubuntu 18.04, run: 
+```
+cd /var/lib/storidge/cio-3249-u18.amd64
+./install
 ```
 
 ### "cioctl: insmod: ERROR: could not insert module"
@@ -220,3 +226,70 @@ This is expected behavior in ESXi. Before a backup a snapshot is taken, the back
 Storidge uses heartbeats to monitor the health of cluster nodes. When a VM does not respond for an extended time it is marked as a failed node. Losing access to multiple nodes can potentially break a cluster. It is not recommended to use VMware snapshot for backup of Storidge nodes.
 
 Storidge will be introducing a backup service for cluster workloads. This will be based on volume snapshots, i.e. the backups are at granularity of a container and does not require a node to be suspended.
+
+### Bad iscsid.service configuration /lib/systemd/system/iscsid.service:5: Missing '='
+
+**Error message:** /lib/systemd/system/iscsid.service:5: Missing '='
+
+This error indicates a bad configuration setting in the iscsi daemon service file located at /lib/systemd/system/iscsid.service. 
+
+On Ubuntu, a correct service file will show:
+```
+[Unit]
+Description=iSCSI initiator daemon (iscsid)
+Documentation=man:iscsid(8)
+Wants=network-online.target remote-fs-pre.target
+Before=cio.service docker.service remote-fs-pre.target
+After=network.target network-online.target
+DefaultDependencies=no
+Conflicts=shutdown.target
+Before=shutdown.target
+ConditionVirtualization=!private-users
+[Service]
+Type=forking
+PIDFile=/run/iscsid.pid
+ExecStartPre=/lib/open-iscsi/startup-checks.sh
+ExecStart=/sbin/iscsid
+[Install]
+WantedBy=sysinit.target
+```
+
+On Centos, a correct service file will show:
+```
+[Unit]
+Description=Login and scanning of iSCSI devices
+Documentation=man:iscsiadm(8) man:iscsid(8)
+DefaultDependencies=no
+Before=remote-fs-pre.target
+After=network.target network-online.target iscsid.service iscsiuio.service systemd-remount-fs.service
+Wants=remote-fs-pre.target iscsi-shutdown.service
+ConditionDirectoryNotEmpty=/var/lib/iscsi/nodes
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=-/sbin/iscsiadm -m node --loginall=automatic
+ExecReload=-/sbin/iscsiadm -m node --loginall=automatic
+SuccessExitStatus=21
+
+[Install]
+WantedBy=remote-fs.target
+```
+
+Try reinstalling the Storidge software to correct the issue. For example, on release 3249 on Ubuntu 18.04, run:  
+```
+cd /var/lib/storidge/cio-3249-u18.amd64
+./install
+```
+
+### Bad iscsid.service configuration iscsid.socket: Socket service iscsid.service not loaded, refusing.
+
+**Error message:** iscsid.socket: Socket service iscsid.service not loaded, refusing.
+
+This error can result from a bad configuration setting in the iscsi daemon service file located at /lib/systemd/system/iscsid.service. 
+
+Try reinstalling the Storidge software to correct the issue. For example, on release 3249 on Ubuntu 18.04, run: 
+```
+cd /var/lib/storidge/cio-3249-u18.amd64
+./install
+```
