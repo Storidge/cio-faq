@@ -32,6 +32,8 @@ Get answers quickly by entering keywords in the search bar above.
 
 [Profiles](/profiles.md)
 
+[Software](/software.md)
+
 [Troubleshooting](/troubleshooting.md)
 
 [Volumes](/volumes.md)
