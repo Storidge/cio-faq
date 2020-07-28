@@ -43,3 +43,6 @@ The `cioctl node update` command by defaults updates to the latest release of th
 ```
 cioctl node update NODENAME --version 3249
 ```
+
+### How do I update a cluster from Storidge software version 3249 and below to the latest release?
+
