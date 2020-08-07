@@ -67,6 +67,16 @@ When creating the Storidge cluster, you can specify which network interface to u
 
 5. In calculations for data throughput, note that for every 100MB/s of incoming data, there is a multiple of the throughput used for replicating data. For 2-copy volumes, 100MB/s will be written to local node and 100MB/s will go through the network interface to other nodes as replicated data, i.e. 100MB/s incoming data stream results in 200MB/s of used network bandwidth.
 
+### Fail: Major version number change, cannot update to 3336
+
+**Error message:** Fail: Major version number change, cannot update to 3336
+
+This error indicates that a software update on a node is not forward compatible using the `cioctl node update` command. 
+
+This incompatibility is marked by bumping up the major version number of the software release. Possible reasons for update incompatibility can be metadata format changes for major new features, protocol changes for internode communications, etc. 
+
+Although cluster aware updates with `cioctl node update` is not possible, Storidge will provide steps for updating a cluster to latest software release whenever possible. Please check release notes at docs.storidge.com or contact support@storidge.com. 
+
 ### dockerd: dockerd: level=warning msg="failed to create proxy for port 9999: listen tcp :9999: bind: address already in use"
 
 **Error message:** dockerd: time="2019-10-10T17:35:59.961861284Z" level=warning msg="failed to create proxy for port 9999: listen tcp :9999: bind: address already in use"
