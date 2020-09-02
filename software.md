@@ -56,6 +56,8 @@ Note: For clusters running releases older than v1.0.0-3249, please update to bui
 
 The upgrade from build 3249 to latest release consists of three stages. At each stage, the upgrade is initiated by running the `update3249` script. 
 
+**Download update3249 script**
+
 To proceed with upgrade, first download the `update3249` script:
 
 ```
@@ -64,6 +66,7 @@ chmod 755 update3249
 ```
 
 **Stage 1**
+
 Before proceeding with the upgrade, it is recommended to stop all services running on the cluster. 
 
 Then run `./update3249` to start Stage 1. Example: 
@@ -95,6 +98,7 @@ Rebooting into Stage 2
 ```
 
 **Stage 2**
+
 Verify that all nodes have rebooted. Then run `./update3249` to start Stage 2. Example: 
 
 ```
@@ -121,6 +125,7 @@ Rebooting into Stage 3
 ```
 
 **Stage 3**
+
 Verify that all nodes have rebooted. Then run `./update3249` to start Stage 3. Example: 
 
 ```
