@@ -50,7 +50,7 @@ Storidge software release v2.0.0-3336 and above introduced a protocol change for
 
 To upgrade clusters running v1.0.0-3249, an `update3249` script is provided to simplify the upgrade process. 
 
-:::
+::: tip
 Note: For clusters running releases older than v1.0.0-3249, please update to build 3249 first. 
 :::
 
