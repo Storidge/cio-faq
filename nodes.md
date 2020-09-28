@@ -10,6 +10,14 @@ lang: en-US
 
 Active cio nodes have label 'cio=true'. When a cio node is cordoned for maintenance, the label will be changed to 'cio=false'
 
+### How do I add a node label cio=true for Storidge node?
+
+To add back a missing label for node NODENAME, run:
+
+```
+docker node update --label-add cio=true NODENAME
+```
+
 ### Can I add new nodes for more services, and then pull them when not needed?
 
 Adding and removing nodes dynamically is supported and really simple. Run the `cioctl join-token` command to create a session token. Then copy and paste the `cioctl add` command string to the new node.
