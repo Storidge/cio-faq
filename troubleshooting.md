@@ -318,3 +318,70 @@ Clean the node before running initialization again:
 ```
 cioctl node clean --force
 ```
+
+### Fail: Problem with key exchange
+
+**Error message:** Fail: Problem with key exchange (exit code 2: request keys: Post "http://192.168.1.201:16994/join": dial tcp 192.168.1.201:16994: i/o timeout)
+
+If you are seeing this error message when joining a node to a cluster, it means connectivity between this node and the primary or sds node is blocked. Example: 
+
+```
+root@u2:~#     cioctl join 192.168.1.201 b305b3f15fa2829b45a6faa7328afaa2-3d4f9324 --ip 192.168.1.202
+Fail: Problem with key exchange (exit code 2: request keys: Post "http://192.168.1.201:16994/join": dial tcp 192.168.1.201:16994: i/o timeout)
+```
+
+Check your firewall settings. The Storidge cluster requires a number of open ports to communication between nodes. See this [link](https://docs.storidge.com/prerequisites/ports.html) for a list of ports. 
+
+If you have ufw enabled on Ubuntu, you can add the required ports with:
+
+```
+sudo ufw allow 3260/tcp
+sudo ufw allow 8282/tcp
+sudo ufw allow 8383/tcp
+sudo ufw allow 16990/tcp
+sudo ufw allow 16995/tcp
+sudo ufw allow 16996/tcp
+sudo ufw allow 16997/tcp
+sudo ufw allow 16998/tcp
+sudo ufw allow 16999/tcp
+```
+
+Check status of the ports with `sudo ufw status`. 
+
+If you are operating a Docker Swarm cluster for your applications, note that the following ports must be open:
+- TCP port 2377 for cluster management communications
+- TCP and UDP port 7946 for communication among nodes
+- UDP port 4789 for overlay network traffic
+
+To add these ports to ufw, run: 
+
+```
+sudo ufw allow 2377/tcp
+sudo ufw allow 7946/tcp
+sudo ufw allow 7946/udp
+sudo ufw allow 4789/udp
+```
+
+### Fail: The swarm does not have a leader. It's possible that too few managers are online
+
+**Error message:** Error response from daemon: rpc error: code = Unknown desc = The swarm does not have a leader. It's possible that too few managers are online. Make sure more than half of the managers are online.
+
+If you've installed and deployed a Storidge cluster but hit the error message above, it's likely that the Docker Swarm cluster was not configured. The reason could be a firewall blocking inter-node communications. 
+
+On Ubuntu, you can check ufw status with `sudo ufw status`. 
+
+To operate a Swarm cluster for your applications, note that the following ports must be open:
+- TCP port 2377 for cluster management communications
+- TCP and UDP port 7946 for communication among nodes
+- UDP port 4789 for overlay network traffic
+
+To add these ports to ufw, run: 
+
+```
+sudo ufw allow 2377/tcp
+sudo ufw allow 7946/tcp
+sudo ufw allow 7946/udp
+sudo ufw allow 4789/udp
+```
+
+
