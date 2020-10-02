@@ -92,3 +92,41 @@ Next, follow steps in [Grafana integration](https://docs.storidge.com/integratio
 ### Is there a Terraform reference for setting up Storidge cluster?
 
 There is a [github repo](https://github.com/Storidge/terraform-aws-swarm-cio) for setting up a Storidge cluster on AWS and also an [example for DigitalOcean Cloud](https://github.com/Storidge/terraform-do-swarm-cio).
+
+### Can I use Wireguard with Storidge?
+
+Yes, Wireguard can be operated alongside the Storidge software. 
+
+However since Wireguard requires a firewall to be enabled, the default firewall settings will block inter-node communications required by the Storidge cluster. 
+
+The Storidge cluster uses these [ports](https://docs.storidge.com/prerequisites/ports.html) for inter-node communication. 
+
+If you have ufw enabled on Ubuntu, you can add the required ports with:
+
+```
+sudo ufw allow 3260/tcp
+sudo ufw allow 8282/tcp
+sudo ufw allow 8383/tcp
+sudo ufw allow 16990/tcp
+sudo ufw allow 16995/tcp
+sudo ufw allow 16996/tcp
+sudo ufw allow 16997/tcp
+sudo ufw allow 16998/tcp
+sudo ufw allow 16999/tcp
+```
+
+Check status of the ports with `sudo ufw status`. 
+
+If you are operating a Docker Swarm cluster for your applications, note that the following ports must also be open:
+- TCP port 2377 for cluster management communications
+- TCP and UDP port 7946 for communication among nodes
+- UDP port 4789 for overlay network traffic
+
+To add these ports to ufw, run: 
+
+```
+sudo ufw allow 2377/tcp
+sudo ufw allow 7946/tcp
+sudo ufw allow 7946/udp
+sudo ufw allow 4789/udp
+```
