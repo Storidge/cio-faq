@@ -130,3 +130,232 @@ sudo ufw allow 7946/tcp
 sudo ufw allow 7946/udp
 sudo ufw allow 4789/udp
 ```
+
+Example of what iptables look like after opening ports above: 
+```
+root@u1:~# iptables -L --line-numbers
+Chain INPUT (policy DROP)
+num  target     prot opt source               destination
+1    ufw-before-logging-input  all  --  anywhere             anywhere
+2    ufw-before-input  all  --  anywhere             anywhere
+3    ufw-after-input  all  --  anywhere             anywhere
+4    ufw-after-logging-input  all  --  anywhere             anywhere
+5    ufw-reject-input  all  --  anywhere             anywhere
+6    ufw-track-input  all  --  anywhere             anywhere
+
+Chain FORWARD (policy DROP)
+num  target     prot opt source               destination
+1    DOCKER-USER  all  --  anywhere             anywhere
+2    DOCKER-INGRESS  all  --  anywhere             anywhere
+3    DOCKER-ISOLATION-STAGE-1  all  --  anywhere             anywhere
+4    ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+5    DOCKER     all  --  anywhere             anywhere
+6    ACCEPT     all  --  anywhere             anywhere
+7    ACCEPT     all  --  anywhere             anywhere
+8    ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+9    DOCKER     all  --  anywhere             anywhere
+10   ACCEPT     all  --  anywhere             anywhere
+11   ufw-before-logging-forward  all  --  anywhere             anywhere
+12   ufw-before-forward  all  --  anywhere             anywhere
+13   ufw-after-forward  all  --  anywhere             anywhere
+14   ufw-after-logging-forward  all  --  anywhere             anywhere
+15   ufw-reject-forward  all  --  anywhere             anywhere
+16   ufw-track-forward  all  --  anywhere             anywhere
+17   ACCEPT     all  --  anywhere             anywhere
+18   DROP       all  --  anywhere             anywhere
+
+Chain OUTPUT (policy ACCEPT)
+num  target     prot opt source               destination
+1    ufw-before-logging-output  all  --  anywhere             anywhere
+2    ufw-before-output  all  --  anywhere             anywhere
+3    ufw-after-output  all  --  anywhere             anywhere
+4    ufw-after-logging-output  all  --  anywhere             anywhere
+5    ufw-reject-output  all  --  anywhere             anywhere
+6    ufw-track-output  all  --  anywhere             anywhere
+
+Chain DOCKER (2 references)
+num  target     prot opt source               destination
+1    ACCEPT     tcp  --  anywhere             172.18.0.3           tcp dpt:portainer-agent
+
+Chain DOCKER-INGRESS (1 references)
+num  target     prot opt source               destination
+1    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:portainer
+2    ACCEPT     tcp  --  anywhere             anywhere             state RELATED,ESTABLISHED tcp spt:portainer
+3    RETURN     all  --  anywhere             anywhere
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+num  target     prot opt source               destination
+1    DOCKER-ISOLATION-STAGE-2  all  --  anywhere             anywhere
+2    DOCKER-ISOLATION-STAGE-2  all  --  anywhere             anywhere
+3    RETURN     all  --  anywhere             anywhere
+
+Chain DOCKER-ISOLATION-STAGE-2 (2 references)
+num  target     prot opt source               destination
+1    DROP       all  --  anywhere             anywhere
+2    DROP       all  --  anywhere             anywhere
+3    RETURN     all  --  anywhere             anywhere
+
+Chain DOCKER-USER (1 references)
+num  target     prot opt source               destination
+1    RETURN     all  --  anywhere             anywhere
+
+Chain ufw-after-forward (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-after-input (1 references)
+num  target     prot opt source               destination
+1    ufw-skip-to-policy-input  udp  --  anywhere             anywhere             udp dpt:netbios-ns
+2    ufw-skip-to-policy-input  udp  --  anywhere             anywhere             udp dpt:netbios-dgm
+3    ufw-skip-to-policy-input  tcp  --  anywhere             anywhere             tcp dpt:netbios-ssn
+4    ufw-skip-to-policy-input  tcp  --  anywhere             anywhere             tcp dpt:microsoft-ds
+5    ufw-skip-to-policy-input  udp  --  anywhere             anywhere             udp dpt:bootps
+6    ufw-skip-to-policy-input  udp  --  anywhere             anywhere             udp dpt:bootpc
+7    ufw-skip-to-policy-input  all  --  anywhere             anywhere             ADDRTYPE match dst-type BROADCAST
+
+Chain ufw-after-logging-forward (1 references)
+num  target     prot opt source               destination
+1    LOG        all  --  anywhere             anywhere             limit: avg 3/min burst 10 LOG level warning prefix "[UFW BLOCK] "
+
+Chain ufw-after-logging-input (1 references)
+num  target     prot opt source               destination
+1    LOG        all  --  anywhere             anywhere             limit: avg 3/min burst 10 LOG level warning prefix "[UFW BLOCK] "
+
+Chain ufw-after-logging-output (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-after-output (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-before-forward (1 references)
+num  target     prot opt source               destination
+1    ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+2    ACCEPT     icmp --  anywhere             anywhere             icmp destination-unreachable
+3    ACCEPT     icmp --  anywhere             anywhere             icmp time-exceeded
+4    ACCEPT     icmp --  anywhere             anywhere             icmp parameter-problem
+5    ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
+6    ufw-user-forward  all  --  anywhere             anywhere
+
+Chain ufw-before-input (1 references)
+num  target     prot opt source               destination
+1    ACCEPT     all  --  anywhere             anywhere
+2    ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+3    ufw-logging-deny  all  --  anywhere             anywhere             ctstate INVALID
+4    DROP       all  --  anywhere             anywhere             ctstate INVALID
+5    ACCEPT     icmp --  anywhere             anywhere             icmp destination-unreachable
+6    ACCEPT     icmp --  anywhere             anywhere             icmp time-exceeded
+7    ACCEPT     icmp --  anywhere             anywhere             icmp parameter-problem
+8    ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
+9    ACCEPT     udp  --  anywhere             anywhere             udp spt:bootps dpt:bootpc
+10   ufw-not-local  all  --  anywhere             anywhere
+11   ACCEPT     udp  --  anywhere             224.0.0.251          udp dpt:mdns
+12   ACCEPT     udp  --  anywhere             239.255.255.250      udp dpt:1900
+13   ufw-user-input  all  --  anywhere             anywhere
+
+Chain ufw-before-logging-forward (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-before-logging-input (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-before-logging-output (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-before-output (1 references)
+num  target     prot opt source               destination
+1    ACCEPT     all  --  anywhere             anywhere
+2    ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+3    ufw-user-output  all  --  anywhere             anywhere
+
+Chain ufw-logging-allow (0 references)
+num  target     prot opt source               destination
+1    LOG        all  --  anywhere             anywhere             limit: avg 3/min burst 10 LOG level warning prefix "[UFW ALLOW] "
+
+Chain ufw-logging-deny (2 references)
+num  target     prot opt source               destination
+1    RETURN     all  --  anywhere             anywhere             ctstate INVALID limit: avg 3/min burst 10
+2    LOG        all  --  anywhere             anywhere             limit: avg 3/min burst 10 LOG level warning prefix "[UFW BLOCK] "
+
+Chain ufw-not-local (1 references)
+num  target     prot opt source               destination
+1    RETURN     all  --  anywhere             anywhere             ADDRTYPE match dst-type LOCAL
+2    RETURN     all  --  anywhere             anywhere             ADDRTYPE match dst-type MULTICAST
+3    RETURN     all  --  anywhere             anywhere             ADDRTYPE match dst-type BROADCAST
+4    ufw-logging-deny  all  --  anywhere             anywhere             limit: avg 3/min burst 10
+5    DROP       all  --  anywhere             anywhere
+
+Chain ufw-reject-forward (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-reject-input (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-reject-output (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-skip-to-policy-forward (0 references)
+num  target     prot opt source               destination
+1    DROP       all  --  anywhere             anywhere
+
+Chain ufw-skip-to-policy-input (7 references)
+num  target     prot opt source               destination
+1    DROP       all  --  anywhere             anywhere
+
+Chain ufw-skip-to-policy-output (0 references)
+num  target     prot opt source               destination
+1    ACCEPT     all  --  anywhere             anywhere
+
+Chain ufw-track-forward (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-track-input (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-track-output (1 references)
+num  target     prot opt source               destination
+1    ACCEPT     tcp  --  anywhere             anywhere             ctstate NEW
+2    ACCEPT     udp  --  anywhere             anywhere             ctstate NEW
+
+Chain ufw-user-forward (1 references)
+num  target     prot opt source               destination
+
+Chain ufw-user-input (1 references)
+num  target     prot opt source               destination
+1    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:ssh
+2    ACCEPT     udp  --  anywhere             anywhere             udp dpt:51820
+3    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:iscsi-target
+4    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:cio-api
+5    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:8383
+6    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:16990
+7    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:cio-keycp
+8    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:ciord
+9    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:cio-kernel
+10   ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:cio-cli
+11   ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:cio-hbt
+12   ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:cio-tcp
+13   ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:2377
+14   ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:7946
+15   ACCEPT     udp  --  anywhere             anywhere             udp dpt:7946
+16   ACCEPT     udp  --  anywhere             anywhere             udp dpt:4789
+
+Chain ufw-user-limit (0 references)
+num  target     prot opt source               destination
+1    LOG        all  --  anywhere             anywhere             limit: avg 3/min burst 5 LOG level warning prefix "[UFW LIMIT BLOCK] "
+2    REJECT     all  --  anywhere             anywhere             reject-with icmp-port-unreachable
+
+Chain ufw-user-limit-accept (0 references)
+num  target     prot opt source               destination
+1    ACCEPT     all  --  anywhere             anywhere
+
+Chain ufw-user-logging-forward (0 references)
+num  target     prot opt source               destination
+
+Chain ufw-user-logging-input (0 references)
+num  target     prot opt source               destination
+
+Chain ufw-user-logging-output (0 references)
+num  target     prot opt source               destination
+
+Chain ufw-user-output (1 references)
+num  target     prot opt source               destination
+root@u1:~#
+```
