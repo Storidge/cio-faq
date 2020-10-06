@@ -41,3 +41,12 @@ LZO - faster compression and decompression than zlib, but worse compression rati
 ZSTD - compression is comparable to zlib with higher compression/decompression speeds 
 
 The differences will depend on your data set. You can run benchmarks to select the best fit. However LZO should give satisfying results for general use.
+
+### Can I apply compression to existing volumes? Just update profile and apply?
+
+Compression has be specified at volume creation since it is enabled when mounting the filesystem on the volume. 
+
+Enabling compression after volume creation entails stopping the service/application, unmounting the filesystem, and remounting with compression enabled. This would be disruptive to the application. 
+
+
+
