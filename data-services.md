@@ -32,7 +32,7 @@ Multi access to a volume across a cluster of nodes requires a shared volume. Sto
 
 On the backend as host I/Os are received by the NFS instance, the I/Os are passed through the file system to the shared volume presented by our block device driver. The replication for the volume happens at the block level and is strictly consistent.
 
-### What are the differences between compression algorithms?
+### What are the differences between the compression methods?
 
 There are three compression methods supported; LZO, ZLIB, and ZSTD. There are speed and compression ratio trade-offs between the three methods:  
 
