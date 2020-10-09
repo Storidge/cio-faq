@@ -37,7 +37,9 @@ On the backend as host I/Os are received by the NFS instance, the I/Os are passe
 There are three compression methods supported; LZO, ZLIB, and ZSTD. There are speed and compression ratio trade-offs between the three methods:  
 
 ZLIB - slower but with higher compression ratio
+
 LZO - faster compression and decompression than zlib, but worse compression ratio. It is designed to be fast
+
 ZSTD - compression is comparable to zlib with higher compression/decompression speeds 
 
 The differences will depend on your data set. You can run benchmarks to select the best fit. However LZO should give satisfying results for general use.
