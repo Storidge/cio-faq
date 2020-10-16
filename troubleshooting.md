@@ -384,4 +384,43 @@ sudo ufw allow 7946/udp
 sudo ufw allow 4789/udp
 ```
 
+### BTRFS info (device vdisk/vd1): forced readonly
+
+**Error message:** Oct 16 09:40:27 manager-0 kernel: [ 4410.126209] BTRFS info (device vdisk/vd1): forced readonly
+
+A 'forced readonly' error indicates that the btrfs filesystem ran out of working space. As a result, the volume is put into read only mode. To recover the volume, older snapshots on the volume can be removed to clear some space.
+
+The example below assumes vd1 mounted at /cio/volumes/vd1 is the volume to recover: 
+
+1. Unmount the volume and remount with clear_cache enabled
+
+```
+root@test:/# umount /cio/volumes/vd1
+root@test:/# mount -o rw,clear_cache /dev/vdisk/vd1 /cio/volumes/vd1
+```
+
+2. List the snapshots (subvolumes). Example: 
+```
+root@test:/# btrfs subvolume list /cio/volumes/vd1
+ID 635 gen 40013 top level 5 path .snap/2020-10-16-0255-edc70723-0000010
+ID 636 gen 40020 top level 5 path .snap/2020-10-16-0256-edc70723-0000010
+ID 638 gen 40268 top level 5 path .snap/2020-10-16-0356-edc70723-0000010
+ID 639 gen 40495 top level 5 path .snap/2020-10-16-0456-edc70723-0000010
+ID 640 gen 40502 top level 5 path .snap/2020-10-16-0457-edc70723-0000010
+ID 641 gen 40743 top level 5 path .snap/2020-10-16-0556-edc70723-0000010
+ID 642 gen 40750 top level 5 path .snap/2020-10-16-0557-edc70723-0000010
+ID 643 gen 40994 top level 5 path .snap/2020-10-16-0656-edc70723-0000010
+ID 644 gen 41001 top level 5 path .snap/2020-10-16-0657-edc70723-0000010
+ID 645 gen 41411 top level 5 path .snap/2020-10-16-0930-edc70723-0000010
+```
+
+3. Delete one or more snapshots (subvolumes) to clear space:
+```
+root@test:/# btrfs subvolume delete /cio/volumes/vd1/.snap/2020-10-16-0255-edc70723-0000010
+```
+
+4. The filesystem should now be read writable. Expand volume capacity to add more space. For example to add 20GB, run:
+```
+root@test:/# cio volume update -V 1 -g 20
+```
 
