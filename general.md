@@ -204,7 +204,9 @@ Later it became obvious there are use cases where data need to persist beyond th
 
 Today persistent storage options for containers has expanded greatly through [volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) which enable many forms of storage, including traditional and external network storage, to provide data persistence for containerized apps. In particular, the industry has coalesced around the [Container Storage Interface](https://github.com/container-storage-interface/spec) specifications to unify the storage interface for container orchestration systems like Docker Swarm and Kubernetes.
 
-Storidge's CIO software provisions and simplifies management of persistent storage for containerized applications.
+See [How Persistent Storage Works on Orchestration Systems](https://storidge.com/blog/what-is-persistent-storage/) for further details.
+
+An example of persistent storage for containers is Storidge’s [CIO software](https://storidge.com/product/).
 
 ### What is cloud native storage?
 
