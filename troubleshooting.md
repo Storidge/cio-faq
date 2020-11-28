@@ -424,3 +424,22 @@ root@test:/# btrfs subvolume delete /cio/volumes/vd1/.snap/2020-10-16-0255-edc70
 root@test:/# cio volume update -V 1 -g 20
 ```
 
+### syntax error near unexpected token `newline'
+
+**Error message:** /usr/bin/cioupdate: line 330: syntax error near unexpected token `newline'
+
+This message indicates a syntax error in a cioupdate script file used for performing cluster aware updates of Storidge nodes. This error affects 3411 and 3450 releases. 
+
+To perform the node cluster, the cioupdate script file must first be patched with: 
+
+```
+curl -fsSL http://download.storidge.com/pub/ce/update.sh | sudo bash -s
+```
+
+After patching the cioupdate script, each node can then be updated to latest release with:
+
+```
+cioctl node update NODENAME
+```
+
+For more information on the update process, see details at:  https://docs.storidge.com/cioctl_cli/node.html#cioctl-node-update
