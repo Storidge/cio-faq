@@ -443,3 +443,29 @@ cioctl node update NODENAME
 ```
 
 For more information on the update process, see details at:  https://docs.storidge.com/cioctl_cli/node.html#cioctl-node-update
+
+### Warning file /etc/storidge/certs/authorized_keys does not exist
+
+**Error message:** Warning file /etc/storidge/certs/authorized_keys does not exist
+
+This message likely indicates that a node installed with v2.0.0 Storidge software was trying to join a cluster running v1.0.0 software, e.g.: 
+
+```
+[root@sdsnode ~]# cioctl node add 10.11.14.94 f1bf0a1dd5e5c2b3d6d09b1ba8fff93c-73db964a --ip 10.11.14.12
+Warning file /etc/storidge/certs/authorized_keys does not exist
+TCP port 16995 did not open after 20 seconds.
+Cannot connect to 10.11.14.94. Retry command or check for connectivity and routing issues
+```
+
+Before a node running v2.0.0 software can be added, the cluster must first be updated to v2.0.0 also. To update the cluster:
+
+1. Update each node of cluster to build 3249 which is the last version on v1.0,0. From the sds node, run:
+
+```
+cioctl node update NODENAME --version 3249
+```
+
+2. After the cluster nodes are updated to 3249, follow steps in:  https://faq.storidge.com/software.html#how-to-update-a-storidge-cluster-from-release-v1-0-0-3249-and-below-to-latest-release to update cluster to latest v2.0.0 software. 
+
+3. Create a join-token and add the new node. Ensure that the new node has a Storidge software release that matches the cluster. 
+
