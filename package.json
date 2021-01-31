@@ -1,7 +1,7 @@
 {
   "name": "cio-faq",
   "version": "1.0.0",
-  "description": "",
+  "description": "---\r title: faq on persistent storage; faq on docker volume\r description: Get answers on docker volumes for Swarm and persistent volumes for Kubernetes\r lang: en-US\r ---",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
