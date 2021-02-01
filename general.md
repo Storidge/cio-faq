@@ -72,7 +72,7 @@ This is why Storidge delivered storage as a software abstraction layer that auto
 
 ### Which operating systems does Storidge CIO support?
 
-Storidge CIO software currently supports CentOS 7 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 16.04LTS (4.4 kernel), Ubuntu 18.04LTS (4.15 kernel), and Ubuntu 20.04LTS (5.4 kernel).
+Storidge CIO software currently supports CentOS 7 (3.10 kernel), RHEL 7 (3.10 kernel), Ubuntu 18.04LTS (4.15 kernel), and Ubuntu 20.04LTS (5.4 kernel).
 
 ### How does automating performance management benefit my applications?
 
@@ -97,10 +97,6 @@ Refer to [CIO vs Others](https://guide.storidge.com/cio_vs_others/overview.html)
 Storidge clusters run in cloud instances, virtual machines or bare metal servers on premise.
 
 Delivering the same API, CLI and user experience across all platforms saves time as there is no more waiting for data center resources to free up. Developers can write apps off a VirtualBox cluster on their laptop and know that it will operate the same way on the cloud.
-
-### When is support for 4.15 Linux kernel available?
-
-Support for Ubuntu 18.04 was added in release V1.0.0-2968.
 
 ### Does Storidge have training resources? Where I can learn more or share with others?
 
