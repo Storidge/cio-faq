@@ -469,3 +469,10 @@ cioctl node update NODENAME --version 3249
 
 3. Create a join-token and add the new node. Ensure that the new node has a Storidge software release that matches the cluster. 
 
+### This system is not registered with an entitlement server. You can use subscription-manager to register.
+
+**Error message:** This system is not registered with an entitlement server. You can use subscription-manager to register.
+
+If you are running Centos 7.9 and see this error, the is likely because the subscription manager setting is enabled. In file '/etc/yum/pluginconf.d/subscription-manager.conf', change the setting `enabled=0`. Run the installation again. 
+
+If you are running RHEL and do have a subscription manager, please follow the instructions from Red Hat to enable the entitlement server. 
