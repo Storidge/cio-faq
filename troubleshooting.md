@@ -476,3 +476,13 @@ cioctl node update NODENAME --version 3249
 If you are running Centos 7.9 and see this error, the is likely because the subscription manager setting is enabled. In file '/etc/yum/pluginconf.d/subscription-manager.conf', change the setting `enabled=0`. Run the installation again. 
 
 If you are running RHEL and do have a subscription manager, please follow the instructions from Red Hat to enable the entitlement server. 
+
+### Running out of system memory
+
+**Error message:** Fail: Create vd9: Running out of system memory"
+
+The Storidge software issues a warning when system memory is more than 80% full. Above this threshold it will not create new volumes to ensure sufficient system memory for critical system processes and applications. 
+
+Run `top` to confirm the memory usage. The Storidge software has successfully operated in environments as low as 2GB system memory. If you have greater memory resources in your system, You may want to check for memory leaks.
+
+You can also run `cioctl report`. This will collect cluster info including system logs into a report.txz file at /var/lib/storidge. Post the report into our cio-user slack channel, and we can look for details on the memory warning.
