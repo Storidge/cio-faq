@@ -62,3 +62,10 @@ System is not initialized
 Run `systemctl restart docker` to restart the docker daemon.
 
 If the node status is still down, run `docker ps` on the node to verify there are no services running on the node. Then perform a hard reset or power cycle the node.
+
+
+### What is the maximum configuration for number of drives, volumes, volume capacity, IOPS, etc.?
+
+The Storidge software supports logical limits that exceeds what most environments will hit. For example, you can attach up to 100 drives per node, provision up to 4095 volumes per node, and support up to 64TB volume capacity.
+
+The IOPS minimum is 30 but IOPS maximum is only limited by the actual hardware. On NVME drives, we've tested 800K IOPS on a 2-copy, 30GB volume at 4K I/O block sizes. The performance numbers were collected with fio.
