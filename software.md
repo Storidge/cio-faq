@@ -31,7 +31,7 @@ cd /var/lib/storidge/cio-3249-u18.amd64
 The install script supports installing a particular version which matches the version on the running cluster. For example, to install build 3062, run:
 
 ```
-curl -fsSL https://104.131.153.182/pub/ce/cio-ce | sudo bash -s -- -f -r 3062
+curl -fsSL ftp://104.131.153.182/pub/ce/cio-ce | sudo bash -s -- -f -r 3452
 ```
 
 The `-s` option directs bash to accept stdin and execute it. Parameters after `--` are presented to the script for processing. `-f` specifies FTP protocol to download release 3062.
