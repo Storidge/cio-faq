@@ -10,7 +10,7 @@ lang: en-US
 
 FTP access may not be allowed from certain countries or locations. You can try using http to download and install:
 
-`curl -fsSL http://download.storidge.com/pub/ce/cio-ce | sudo bash`
+`curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash`
 
 ### How do I restart the API server cio-api?
 
@@ -31,7 +31,7 @@ cd /var/lib/storidge/cio-3249-u18.amd64
 The install script supports installing a particular version which matches the version on the running cluster. For example, to install build 3062, run:
 
 ```
-curl -fsSL ftp://104.131.153.182/pub/ce/cio-ce | sudo bash -s -- -f -r 3062
+curl -fsSL https://104.131.153.182/pub/ce/cio-ce | sudo bash -s -- -f -r 3062
 ```
 
 The `-s` option directs bash to accept stdin and execute it. Parameters after `--` are presented to the script for processing. `-f` specifies FTP protocol to download release 3062.
@@ -61,7 +61,7 @@ The upgrade from build 3249 to latest release consists of three stages. At each 
 To proceed with upgrade, first download the `update3249` script:
 
 ```
-curl -fsSL ftp://download.storidge.com/pub/ce/update3249 > update3249
+curl -fsSL https://download.storidge.com/pub/ce/update3249 > update3249
 chmod 755 update3249
 ```
 

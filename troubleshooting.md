@@ -433,7 +433,7 @@ This message indicates a syntax error in a cioupdate script file used for perfor
 To perform the node cluster, the cioupdate script file must first be patched with: 
 
 ```
-curl -fsSL http://download.storidge.com/pub/ce/update.sh | sudo bash -s
+curl -fsSL https://download.storidge.com/pub/ce/update.sh | sudo bash -s
 ```
 
 After patching the cioupdate script, each node can then be updated to latest release with:
