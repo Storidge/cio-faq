@@ -31,10 +31,10 @@ cd /var/lib/storidge/cio-3249-u18.amd64
 The install script supports installing a particular version which matches the version on the running cluster. For example, to install build 3062, run:
 
 ```
-curl -fsSL ftp://104.131.153.182/pub/ce/cio-ce | sudo bash -s -- -f -r 3452
+curl -fsSL https://download.storidge.com/pub/ce/cio-ce | sudo bash -s -- -r 3411
 ```
 
-The `-s` option directs bash to accept stdin and execute it. Parameters after `--` are presented to the script for processing. `-f` specifies FTP protocol to download release 3062.
+The `-s` option directs bash to accept stdin and execute it. Parameters after `--` are presented to the script for processing. `-r` specifies release 3411.
 
 ### How do I update a cluster to a specific version of Storidge software?
 
