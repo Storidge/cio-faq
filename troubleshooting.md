@@ -479,10 +479,22 @@ If you are running RHEL and do have a subscription manager, please follow the in
 
 ### Running out of system memory
 
-**Error message:** Fail: Create vd9: Running out of system memory"
+**Error message:** Fail: Create vd9: Running out of system memory
 
 The Storidge software issues a warning when system memory is more than 80% full. Above this threshold it will not create new volumes to ensure sufficient system memory for critical system processes and applications. 
 
 Run `top` to confirm the memory usage. The Storidge software has successfully operated in environments as low as 2GB system memory. If you have greater memory resources in your system, You may want to check for memory leaks.
 
 You can also run `cioctl report`. This will collect cluster info including system logs into a report.txz file at /var/lib/storidge. Post the report into our cio-user slack channel, and we can look for details on the memory warning.
+
+
+### There are insufficient (1) drives on this node
+
+**Error message:** There are insufficient (1) drives on this node. Attach more data drives for cio operation
+
+This error indicates there are insufficient data drives or size of the data drive may be too small. You can verify the Storidge software prerequisites here: https://docs.storidge.com/prerequisites/hardware.html
+
+The Storidge software will auto discover and only use drives that are not formatted with file system or has partitions. This is to avoid accidentally wiping out a drive with data. If you already have one boot drive and 3 data drives, it is possible that one of the data drives has partitions or a file system. You can verify with `file -sL /dev/sd*`
+
+
+
